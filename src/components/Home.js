@@ -5,7 +5,7 @@ const Home = (props) => {
 
     return (
         <Fragment>
-            <h1>Welcome!</h1>
+            <title>League Central</title>
             
         </Fragment>
     )
