@@ -4,7 +4,8 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-app.get('/api', (req, res) => {
+app.get('/message', (req, res) => {
+    console.log("owen is a ptard")
     res.json({ message: 'Hello from server!' });
 });
 
