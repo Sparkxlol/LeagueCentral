@@ -25,3 +25,7 @@ yarn-error.log*
 client/node_modules/
 client/build/
 client/.env
+
+server/node_modules/
+server/build/
+server/.env

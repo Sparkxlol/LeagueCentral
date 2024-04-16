@@ -5,17 +5,17 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 function App() {
-
+  console.log('fetching');
   const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchMessage = async () => {
-      const response = await fetch('http://localhost:3001/message');
-      const data = await response.json();
+      const response = await fetch('/message');
+      const data = await response.text();
       setMessage(data);
   }
   
-  fetchMessage();
+    fetchMessage();
   }, []);
 
   return (
