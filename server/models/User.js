@@ -16,19 +16,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'This field is required'],
         trim: true,
+        minLength: [3, 'Username must be at least 3 characters'],
+        unique: true,
     }, 
     email: {
         type: String, 
         required: [true, 'This field is required'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Invalid email'],
         trim: true,
-
+        unique: true,
     }, 
     password: {
         type: String, 
         required: [true, 'This field is required'],
         trim: true,
-        minLength: 8,
+        minLength: [8, 'Password must be at least 8 characters'],
     }, 
     dateOfBirth: {
         type: Date,
@@ -39,15 +41,19 @@ const userSchema = new mongoose.Schema({
         required: [true, 'This field is required'],
         trim: true,
         lowercase: true,
+        enum: ['male', 'female', 'other'],
     },
     organization: {
         type: mongoose.SchemaTypes.ObjectId,
         required: [true, 'This field is required'],
-        ref: Organization,
+        ref: 'Organization',
+        //? enforce only one organization
     },
     phone: {
         type: String,
         trim: true,
+        match: [/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im, 'Invalid format'],
+        unique: true,
     },
     profilePicture: String,
 })
