@@ -35,6 +35,7 @@ const userSchema = new mongoose.Schema({
     dateOfBirth: {
         type: Date,
         required: [true, 'This field is required'],
+        //TODO: make minimum age X years old
     },
     gender: {
         type: String, 
