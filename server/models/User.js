@@ -59,4 +59,10 @@ const userSchema = new mongoose.Schema({
     profilePicture: String,
 })
 
+//static method that queries a user by email. Useful for finding and sending invites to teammates through email
+//RegExp makes the email case insensitive
+userSchema.statics.findByEmail = function(email) {
+    return this.where({email: new RegExp(email, 'i')});
+}
+
 module.exports = mongoose.model("User", userSchema);
