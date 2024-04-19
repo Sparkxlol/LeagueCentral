@@ -37,4 +37,10 @@ const organizationSchema = new mongoose.Schema({
     profilePicture: String,
 })
 
+/*Static method that queries an organization by its name. Useful for finding the organization that you are joining.
+RegExp makes the name case insensitive.*/
+organizationSchema.statics.findByName = function(name) {
+    return this.where({name: new RegExp(email,'i')});
+}
+
 module.exports = mongoose.model("Organization", organizationSchema);
