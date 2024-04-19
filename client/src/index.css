@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 1rem;
+  align-items: center;
+
+}
+
+.Home {
+  font-size: 3rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+}
+
+.nav li.active {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: rgb(51, 51, 51);
+  font-size: 2rem;
+}
+
+.nav li:hover {
+  background-color: #555;
+}

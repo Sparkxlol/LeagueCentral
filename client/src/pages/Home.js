@@ -6,14 +6,12 @@ import { useEffect, useState } from "react";
 
 const Home = (props) => {
 
-    useEffect( () => {
-        
-    }, [])
+    
 
     return (
         <Fragment>
             <body>
-                <h1>League Central</h1>
+                <h1>Home</h1>
             </body>
         </Fragment>
     )
