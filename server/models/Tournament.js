@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
-const leagueSchema = new mongoose.Schema({
+const tournamentSchema = new mongoose.Schema({
     teams: [{
         'type': mongoose.SchemaTypes.ObjectId,
         'ref': 'Team',
         'required': [true, 'This field is required']
     }],
-    //! unsure if this is correct
     sport: {
         type: mongoose.SchemaTypes.ObjectId,
         required: [true, 'This field is required'],
@@ -22,4 +21,4 @@ const leagueSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("League", leagueSchema);
+module.exports = mongoose.model("Tournament", tournamentSchema);

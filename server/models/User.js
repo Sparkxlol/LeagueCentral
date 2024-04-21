@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'This field is required'],
         trim: true,
         minLength: [3, 'Username must be at least 3 characters'],
+        maxLength: [16, 'Username cannot exceed 16 characters'],
         unique: true,
     }, 
     email: {
@@ -31,6 +32,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'This field is required'],
         trim: true,
         minLength: [8, 'Password must be at least 8 characters'],
+        maxLength: [16, 'Password cannot exceed 16 characters'],
     }, 
     dateOfBirth: {
         type: Date,
