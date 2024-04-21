@@ -54,3 +54,20 @@ code {
 .nav li:hover {
   background-color: #555;
 }
+
+.login {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  
+}
+
+.login h1 {
+  font-size: 4rem;
+}
+
+.login form {
+  font-size: 2rem;
+}
+
+
+

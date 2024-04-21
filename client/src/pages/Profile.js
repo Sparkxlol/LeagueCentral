@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Profile() {
+function Profile({user}) {
   return (
-    <div>
-      <h1>Melonman</h1>
-    </div>
+    <>
+      <h1 className='user'>Hello</h1>
+      
+    </>
   )
 }
 
