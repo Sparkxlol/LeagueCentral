@@ -17,8 +17,6 @@ function Login() {
           <img src={mail_icon} alt=''/>
           <input placeholder='Email' type='email'/>
         </div>
-      </div>
-      <div className = 'inputs'>
         <div className='input'>
           <img src={password_icon} alt=''/>
           <input placeholder='Password' type='password'/>

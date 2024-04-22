@@ -10,7 +10,7 @@ import Match from './pages/Match';
 import Profile from './pages/Profile';
 import ProfileInfo from './pages/ProfileInfo';
 import ProfileSchedule from './pages/ProfileSchedule';
-import Registration from './pages/Registration';
+import Registration from './pages/RegistrationPage/Registration';
 import Team from './pages/Team';
 import TeamInvite from './pages/TeamInvite';
 import Tournament from './pages/Tournament';

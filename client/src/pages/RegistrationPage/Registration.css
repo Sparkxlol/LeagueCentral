@@ -49,10 +49,11 @@
 }
 
 .input img{
-    margin: 0px 20px;
+    margin-left: 15px;
+    margin-right: 0px;
 }
 
-.input input{
+.input input , label{
     background: transparent;
     border: none;
     outline: none;
@@ -60,13 +61,26 @@
     font-size: 20px;
 }
 
+.input > input, label {
+    padding-left: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 20px;
+}
+
+ .input > select {
+    margin-left: 20px;
+} 
+
 .forgot-password{
     color: #797979;
     padding-left: 60px;
     margin-top: 30px;
 }
 
-.forgot-password span{
+.forgot-password a{
     color: #61dafb;
     cursor: pointer;
     padding-left: 5px;
@@ -98,5 +112,5 @@
 }
 
 .submission a {
-    color: white;
+    color: #61dafb;
 }
