@@ -10,9 +10,15 @@ const Home = (props) => {
 
     return (
         <Fragment>
-            <body>
-                <h1>Home</h1>
-            </body>
+            <div className="homePage">
+                <h1 className="h1">Leagues</h1>
+                <body className="body">
+                    <ul className="ul">
+                        <li>Get stuff from database</li>
+                        <li>facts</li>
+                    </ul>
+                </body>
+            </div>
         </Fragment>
     )
 }
