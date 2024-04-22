@@ -1,26 +1,31 @@
 import React from "react";
 import { Fragment } from "react";
 import { useEffect, useState } from "react";
+import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-dom'
+import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import Match from "./Match";
 
 
 
-const Home = (props) => {
+const Home = () => {
 
     
 
     return (
         <Fragment>
             <div className="homePage">
-                <h1 className="h1">Leagues</h1>
-                <body className="body">
+                <h1 className="h1">University of Mid</h1>
                     <ul className="ul">
-                        <li>Get stuff from database</li>
-                        <li>facts</li>
+                        <p className="p">Active Sports</p>
+                        <li className="li">HIGIGIGIGIGIGIGIGIGIGIGIGGGGGGGGGGGGGGGGGGGGGGG GGGGGGGGGGGGGGGGGGGG GGGGGGGGGGGGGGGGGGG</li>
+                        <li className="li"><Link to='/Match' state={{ sport: 'basketball'}}>BasketBall</Link></li>
                     </ul>
-                </body>
             </div>
         </Fragment>
     )
 }
+
+
+
 
 export default Home

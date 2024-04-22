@@ -57,36 +57,84 @@ code {
   background-color: #ac7807;
 }
 
-.login {
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  color: white;
-}
 
-.login h1 {
-  font-size: 4rem;
-}
-
-.login form {
-  font-size: 2rem;
-}
 
 .homePage {
   color: white;
   margin-left: 20rem;
+  margin-right: 20rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
 }
 
 .homePage h1 {
 
 }
 
-.homePage body {
-
+.homePage ul {
+  margin: 3rem;
+  border-radius: 1rem;
+  background-color: #0f0f0f;
+  padding-bottom: .5rem;
 }
 
-.homePage ul {
+.homePage p {
+  font-size: 3rem;
+  border: rgba(211, 139, 6, 0.849) solid;
+  border-width: 0.15rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-right: 3rem;
+}
+
+.homePage li {
+  list-style: none;
+  height: 5rem;
+  border: rgba(211, 139, 6, 0.849) solid;
+  border-width: 0.15rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+}
+
+.match {
+  margin-left: 20rem;
+  margin-right: 20rem;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+}
+
+
+.match ul {
+  list-style: none;
+  border-radius: 1rem;
+  background-color: #0f0f0f;
+  padding-bottom: .5rem;
+  padding-top: .1rem;
+}
+
+.match li {
+  border-radius: 1rem;
+  background-color: #5e5e5e;
+  margin-right: 3rem;
   
 }
+
+.match h1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  
+}
+
+.match p{
+  padding-left: 1rem;
+  padding-right: 1rem;
+} 
 
 
 
