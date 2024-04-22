@@ -5,7 +5,7 @@ import React, { Fragment } from 'react';
 import { useEffect, useState } from 'react';
 import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-dom'
 import League from './pages/League';
-import Login from './pages/Login';
+import Login from './pages/LoginPage/Login';
 import Match from './pages/Match';
 import Profile from './pages/Profile';
 import ProfileInfo from './pages/ProfileInfo';
