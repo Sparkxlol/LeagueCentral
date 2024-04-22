@@ -6,7 +6,6 @@ const leagueSchema = new mongoose.Schema({
         'ref': 'Team',
         'required': [true, 'This field is required']
     }],
-    //! unsure if this is correct
     sport: {
         type: mongoose.SchemaTypes.ObjectId,
         required: [true, 'This field is required'],
@@ -19,6 +18,11 @@ const leagueSchema = new mongoose.Schema({
     endDate: {
         type: Date,
         required: [true, 'This field is required']
+    },
+    organization: {
+        type: mongoose.SchemaTypes.ObjectId,
+        required: [true, 'This field is required'],
+        ref: 'Organization'
     }
 })
 
