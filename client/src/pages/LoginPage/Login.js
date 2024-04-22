@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import './Login.css'
 import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
 
 function Login() {
-
-
 
   return (
     <div className = 'login'>
@@ -25,12 +24,16 @@ function Login() {
           <input placeholder='Password' type='password'/>
         </div>  
       </div>
-      <div className='forgot-password'>Forgot Password?<span>Click here.</span></div>
-      <div className='submit'>
-        <div className='submission'>Login</div>
+      <div className ='forgot-password'>Forgot Password?<span>Click here.</span></div>
+      <div className ='submit'>
+        <div className = 'submission'>Login</div>
+        <div className = 'submission'><Link to = '/Registration'>Sign Up</Link></div>
       </div>
     </div>
   )
 }
+
+
+
 
 export default Login
