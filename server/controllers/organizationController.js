@@ -1,6 +1,6 @@
 const Organization = require('../models/Organization');
 const mongoose = require('mongoose');
-const utilities = require('./utlities');
+const utilities = require('./utilities');
 
 // CREATE the organization with the given request body parameters.
 const createOrganization = async (req, res) => {

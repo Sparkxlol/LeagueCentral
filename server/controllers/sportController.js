@@ -1,6 +1,6 @@
 const Sport = require('../models/Sport');
 const mongoose = require('mongoose');
-const utilities = require('./utlities');
+const utilities = require('./utilities');
 
 // CREATE the league with the given request body parameters.
 const createSport = async (req, res) => {

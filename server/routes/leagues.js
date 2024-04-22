@@ -4,6 +4,7 @@ const leagueController = require('../controllers/leagueController');
 const router = express.Router();
 
 router.get('/active', leagueController.getActiveLeagues); // Get active leagues by organization
+router.get('/:id', leagueController.getLeague); // Get league by id
 router.post('/', leagueController.createLeague); // Create league with given information
 
 module.exports = router;
