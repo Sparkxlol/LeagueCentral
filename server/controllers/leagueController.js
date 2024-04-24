@@ -25,8 +25,6 @@ const getActiveLeagues = async (req, res) => {
             }
         )
     }
-
-    console.log(responseBody);
     
     res.status(200).json(responseBody);
 }

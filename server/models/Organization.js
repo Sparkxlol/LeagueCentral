@@ -33,6 +33,7 @@ const organizationSchema = new mongoose.Schema({
         trim: true,
         match: [/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im, 'Invalid format'],
         unique: true,
+        sparse: true
     },
     profilePicture: String,
 })
