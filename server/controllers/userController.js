@@ -1,11 +1,8 @@
-require('dotenv').config();
 const User = require('../models/User');
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const utilities = require('./utilities');
-
-const COOKIE_NAME = 'leagueCentral_jwt';
+const auth = require('./authController');
 
 // RETRIEVE the user with the given id, or an error message.
 const getUser = async (req, res) => {
@@ -36,7 +33,7 @@ const createUser = async (req, res) => {
             dateOfBirth, gender, organization, phone, profilePicture 
         });
 
-        addTokenToResponse(res, user._id);
+        auth.addCookieToResponse(res, user._id);
         res.status(200).json(user);
     }
     catch (error) { return utilities.returnError(res, 400, error.message) };
@@ -89,7 +86,7 @@ const loginUser = async (req, res) => {
     // Verifies the user exists and the entered email/pass combination is valid.
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
-            addTokenToResponse(res, user._id);
+            auth.addCookieToResponse(res, user._id);
             return res.status(200).json(user);
         }
     }
@@ -99,20 +96,8 @@ const loginUser = async (req, res) => {
 
 // logs out the user by removing the JWT token.
 const logoutUser = (req, res) => {
-    res.clearCookie(COOKIE_NAME);
+    auth.removeCookieFromResponse(res);
     res.status(200).json({});
-}
-
-const addTokenToResponse = (res, userID) => {
-    // Day long token/cookie expiry date.
-    const tokenDuration = 24 * 60 * 60;
-    const cookieDuration = tokenDuration * 1000;
-
-    const token = jwt.sign({ userID }, process.env.JWTSecret, {
-        expiresIn: tokenDuration
-    });
-
-    res.cookie(COOKIE_NAME, token, { httpOnly: true, sameSite: "strict", maxAge: cookieDuration });
 }
 
 module.exports = { getUser, createUser, deleteUser, updateUser, registerUser, loginUser, logoutUser };
