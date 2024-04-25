@@ -17,25 +17,25 @@ function Registration() {
     </div>
     <div className = 'inputs'>
       <div className='input'>
-        <input placeholder='First name  *' type='text'/>
+        <input placeholder='First name   *' type='text'/>
       </div>
       <div className='input'>
-        <input placeholder='Last name *' type='text'/>
+        <input placeholder='Last name   *' type='text'/>
       </div>
       <div className='input'>
         <img src = {user_icon} alt = ''/>
-        <input placeholder='Username  *' type='text'/>
+        <input placeholder='Username   *' type='text'/>
       </div>
       <div className='input'>
         <img src={mail_icon} alt=''/>
-        <input placeholder='Email *' type='email'/>
+        <input placeholder='Email   *' type='email'/>
       </div>
       <div className='input'>
         <img src={password_icon} alt=''/>
-        <input placeholder='Password  *' type='password'/> 
+        <input placeholder='Password   *' type='password'/> 
       </div>
       <div className='input'>
-        <label for="birthday">Birthday:</label>
+        <label htmlFor="birthday">Birthday:</label>
         <input type='date' name='Date of Birth'/>
         <p>*</p>
       </div>
