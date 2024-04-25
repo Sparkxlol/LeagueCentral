@@ -3,6 +3,7 @@ import './Registration.css'
 import {Link} from 'react-router-dom'
 import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
+import user_icon from '../../Assets/person.png'
 
 function Registration() {
   return (
@@ -11,27 +12,32 @@ function Registration() {
       <div className = 'text'>Register</div>
       <div className = 'underline'></div>
     </div>
+    <div className='required'>
+      * denotes required field
+    </div>
     <div className = 'inputs'>
       <div className='input'>
-        <input placeholder='First name' type='text'/>
+        <input placeholder='First name  *' type='text'/>
       </div>
       <div className='input'>
-        <input placeholder='Last name' type='text'/>
+        <input placeholder='Last name *' type='text'/>
       </div>
       <div className='input'>
-        <input placeholder='Username' type='text'/>
+        <img src = {user_icon} alt = ''/>
+        <input placeholder='Username  *' type='text'/>
       </div>
       <div className='input'>
         <img src={mail_icon} alt=''/>
-        <input placeholder='Email' type='email'/>
+        <input placeholder='Email *' type='email'/>
       </div>
       <div className='input'>
         <img src={password_icon} alt=''/>
-        <input placeholder='Password' type='password'/> 
+        <input placeholder='Password  *' type='password'/> 
       </div>
       <div className='input'>
         <label for="birthday">Birthday:</label>
         <input type='date' name='Date of Birth'/>
+        <p>*</p>
       </div>
       <div className='input'>
         <select name='Gender' id='gender'> 
@@ -39,6 +45,7 @@ function Registration() {
           <option value = 'female'>female</option>
           <option value = 'other'>other</option>
         </select>
+        <p>*</p>
       </div>
       <div className='input'>
         <input placeholder='Phone' type='text'/>
