@@ -29,7 +29,7 @@ const getUser = async (req, res) => {
 const createUser = async (req, res) => {
     const { firstName, lastName, userName, email, password,
          dateOfBirth, gender, organization, phone, profilePicture } = req.body;
-
+        
     try {
         const user = await User.create({ 
             firstName, lastName, userName, email, password,

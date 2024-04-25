@@ -46,12 +46,12 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         enum: ['male', 'female', 'other'],
     },
-    organization: {
-        type: mongoose.SchemaTypes.ObjectId,
-        required: [true, 'This field is required'],
-        ref: 'Organization',
-        //? enforce only one organization
-    },
+    // organization: {
+    //     type: mongoose.SchemaTypes.ObjectId,
+    //     required: [true, 'This field is required'],
+    //     ref: 'Organization',
+    //     //? enforce only one organization
+    // },
     phone: {
         type: String,
         trim: true,
