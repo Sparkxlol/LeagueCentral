@@ -7,6 +7,7 @@ const userRoutes = require('./routes/users');
 const leagueRoutes = require('./routes/leagues');
 const sportRoutes = require('./routes/sports');
 const organizationRoutes = require('./routes/organizations');
+const authRoutes = require('./routes/auth');
 
 // Set up PORT and express.
 const PORT = 3001;
@@ -20,6 +21,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/leagues', leagueRoutes);
 app.use('/api/sports', sportRoutes);
 app.use('/api/organizations', organizationRoutes);
+app.use('/api/auth', authRoutes);
 
 // Attempt to connect to MongoDB.
 mongoose.connect(process.env.MongoDBLink)
