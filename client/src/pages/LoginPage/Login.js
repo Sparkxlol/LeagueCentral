@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 import './Login.css'
 import mail_icon from '../../Assets/email.png'
@@ -25,7 +24,11 @@ function Login() {
       <div className ='forgot-password'>Forgot Password?<span>Click here.</span></div>
       <div className ='submit'>
         <div className = 'submission'>Login</div>
+<<<<<<< HEAD
         <div><Link className = 'submission' to = '/Registration'>Sign Up</Link></div>
+=======
+        <div><Link className='submission' to = '/Registration'>Sign Up</Link></div>
+>>>>>>> 6d20330efcab40f6fd002c884717128d6848f90d
       </div>
     </div>
   )

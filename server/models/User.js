@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -57,8 +57,17 @@ const userSchema = new mongoose.Schema({
         trim: true,
         match: [/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im, 'Invalid format'],
         unique: true,
+        sparse: true
     },
     profilePicture: String,
+})
+
+// Runs after validation, but before creation. 
+// Salts and hashes the newly-created password.
+userSchema.pre('save', function(next) {
+    this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync());
+    
+    next();
 })
 
 //static method that queries a user by email. Useful for finding and sending invites to teammates through email
