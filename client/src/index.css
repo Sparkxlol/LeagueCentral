@@ -59,45 +59,53 @@ code {
 
 
 
-.homePage {
-  color: white;
-  margin-left: 20rem;
-  margin-right: 20rem;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 2rem;
+.homepage {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding-bottom: 20px;
+    margin: auto;
+    margin-top: 100px;
+    width: 1200px;
+    border-radius: 20px;
 }
 
 /* .homePage h1 {
 
 } */
 
-.homePage ul {
-  margin: 3rem;
-  border-radius: 1rem;
-  background-color: #0f0f0f;
-  padding-bottom: .5rem;
+.homepage .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  width: 100%;
+  color: #2c2c2c;
+  font-size: 48px;
+  font-weight: 500;
+
+  
 }
 
-.homePage p {
-  font-size: 3rem;
-  border: rgba(211, 139, 6, 0.849) solid;
-  border-width: 0.15rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-right: 3rem;
+
+
+.homepage .sections {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 20px;
 }
 
-.homePage li {
-  list-style: none;
-  height: 5rem;
-  border: rgba(211, 139, 6, 0.849) solid;
-  border-width: 0.15rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  margin-right: 3rem;
-  margin-bottom: 1rem;
+.homepage .section {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 1100px;
+  height: 100px;
+  background: lightgray;
+  border-radius: 8px;
+  font-size: 24px;
 }
 
 .match {

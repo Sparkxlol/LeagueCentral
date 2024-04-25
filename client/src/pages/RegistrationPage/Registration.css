@@ -70,9 +70,9 @@
     font-size: 20px;
 }
 
- .input > select {
-    margin-left: 20px;
-} 
+input[type = date] {
+    cursor: pointer;
+}
 
 .forgot-password{
     color: #797979;
@@ -113,4 +113,23 @@
 
 .submission a {
     color: #61dafb;
+}
+
+select {
+    outline: none;
+    border: none;
+    width: 80px;
+    background-color:#eaeaea ;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+p {
+    padding-left: 5px;
+}
+
+.required {
+    padding: 20px 0px 0px 50px;
+    color: red;
+    opacity: .75;
 }

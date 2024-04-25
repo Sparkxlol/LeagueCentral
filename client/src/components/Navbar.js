@@ -9,11 +9,12 @@ function Navbar() {
       </Link>
       <ul>
         <li className='active'>
-          <CustomLink to='/Login' >Login</CustomLink>
+          <CustomLink to='/Profile'>Profile</CustomLink>
         </li>
         <li className='active'>
-          <CustomLink to='/Registration'>Create account</CustomLink>
+          <CustomLink to='/Login' >Login</CustomLink>
         </li>
+        
       </ul>
     </nav>
   )
