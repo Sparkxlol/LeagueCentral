@@ -24,11 +24,7 @@ function Login() {
       <div className ='forgot-password'>Forgot Password?<span>Click here.</span></div>
       <div className ='submit'>
         <div className = 'submission'>Login</div>
-<<<<<<< HEAD
         <div><Link className = 'submission' to = '/Registration'>Sign Up</Link></div>
-=======
-        <div ><Link className = 'submission' to = '/Registration'>Sign Up</Link></div>
->>>>>>> e3995476d69479bdec91be3e5dd3b40618202ff0
       </div>
     </div>
   )
