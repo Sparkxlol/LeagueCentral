@@ -48,53 +48,53 @@ function Registration() {
 
   return (
     <div className = 'login'>
-    <div className = 'header'>
-      <div className = 'text'>Register</div>
-      <div className = 'underline'></div>
-    </div>
-    <div className='required'>
-      * denotes required field
-    </div>
-    <div className = 'inputs'>
-      <div className='input'>
-        <input placeholder='First name   *' type='text' id='fName' name='firstName' onChange={handleChange}/>
+      <div className = 'header'>
+        <div className = 'text'>Register</div>
+        <div className = 'underline'></div>
       </div>
-      <div className='input'>
-        <input placeholder='Last name   *' type='text' id='lName' name='lastName' onChange={handleChange}/>
+      <div className='required'>
+        * denotes required field
       </div>
-      <div className='input'>
-        <img src = {user_icon} alt = ''/>
-        <input placeholder='Username   *' type='text' id='userName' name='userName' onChange={handleChange} />
+      <div className = 'inputs'>
+        <div className='input'>
+          <input placeholder='First name   *' type='text' id='fName' name='firstName' onChange={handleChange}/>
+        </div>
+        <div className='input'>
+          <input placeholder='Last name   *' type='text' id='lName' name='lastName' onChange={handleChange}/>
+        </div>
+        <div className='input'>
+          <img src = {user_icon} alt = ''/>
+          <input placeholder='Username   *' type='text' id='userName' name='userName' onChange={handleChange} />
+        </div>
+        <div className='input'>
+          <img src={mail_icon} alt=''/>
+          <input placeholder='Email   *' type='email' id='email' name='email' onChange={handleChange} />
+        </div>
+        <div className='input'>
+          <img src={password_icon} alt=''/>
+          <input placeholder='Password   *' type='password' id='pass' name='password' onChange={handleChange} /> 
+        </div>
+        <div className='input'>
+          <label htmlFor="birthday">Birthday:</label>
+          <input type='date' id='bday' name='dateOfBirth' onChange={handleChange} />
+          <p>*</p>
+        </div>
+        <div className='input'>
+          <select id='gender' name='gender' onChange={handleChange}> 
+            <option value = 'male'>male</option>
+            <option value = 'female'>female</option>
+            <option value = 'other'>other</option>
+          </select>
+          <p>*</p>
+        </div>
+        <div className='input'>
+          <input placeholder='Phone' type='text' id='phone' name='phone' onChange={handleChange} />
+        </div>
       </div>
-      <div className='input'>
-        <img src={mail_icon} alt=''/>
-        <input placeholder='Email   *' type='email' id='email' name='email' onChange={handleChange} />
+      <div className ='forgot-password'>Already have an account?<Link to = '/Login'>Login here.</Link></div>
+      <div className ='submit'>
+        <button className = 'submission' onClick={handleSubmit}>Create Account</button>
       </div>
-      <div className='input'>
-        <img src={password_icon} alt=''/>
-        <input placeholder='Password   *' type='password' id='pass' name='password' onChange={handleChange} /> 
-      </div>
-      <div className='input'>
-        <label htmlFor="birthday">Birthday:</label>
-        <input type='date' id='bday' name='dateOfBirth' onChange={handleChange} />
-        <p>*</p>
-      </div>
-      <div className='input'>
-        <select id='gender' name='gender' onChange={handleChange}> 
-          <option value = 'male'>male</option>
-          <option value = 'female'>female</option>
-          <option value = 'other'>other</option>
-        </select>
-        <p>*</p>
-      </div>
-      <div className='input'>
-        <input placeholder='Phone' type='text' id='phone' name='phone' onChange={handleChange} />
-      </div>
-    </div>
-    <div className ='forgot-password'>Already have an account?<Link to = '/Login'>Login here.</Link></div>
-    <div className ='submit'>
-      <button className = 'submission' onClick={handleSubmit}>Create Account</button>
-    </div>
   </div>
   )
 }
