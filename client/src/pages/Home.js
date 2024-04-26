@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-dom'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
-import Match from "./Match";
+import Match from "./MatchPage/Match";
 import axios from 'axios'
 
 
