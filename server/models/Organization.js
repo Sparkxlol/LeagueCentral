@@ -35,6 +35,10 @@ const organizationSchema = new mongoose.Schema({
         unique: true,
         sparse: true
     },
+    address: {
+        type: String,
+        required: [true, 'This field is required']
+    },
     profilePicture: String,
 })
 

@@ -4,7 +4,6 @@ const matchSchema = new mongoose.Schema({
     winnerScore: {
         type: Number,
         required: [true, 'This field is required'],
-        min: 1,
     },
     loserScore: {
         type: Number,
@@ -14,7 +13,7 @@ const matchSchema = new mongoose.Schema({
         type: Date,
         required: [true, 'This field is required']
     },
-    team: [{
+    teams: [{
         'type': mongoose.SchemaTypes.ObjectId,
         'required': [true, 'This field is required'],
         'ref': 'Team'
