@@ -11,7 +11,7 @@ const teamSchema = new mongoose.Schema({
         minLength: [4, 'Name must be at least 4 characters'],
         maxLength: [20, 'Name cannot exceed 20 characters'],
         trim: true,
-        match: [/^[a-z0-9]+$/i, 'Invalid character(s)'],
+        match: [/^[a-z0-9 ]+$/i, 'Invalid character(s)'],
     },
     description: {
         type: String,
