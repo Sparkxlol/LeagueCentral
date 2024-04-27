@@ -21,10 +21,7 @@ const matchSchema = new mongoose.Schema({
     league: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'League',
-    },
-    tournament: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Tournament'
+        required: [true, 'This field is required']
     }
 })
 

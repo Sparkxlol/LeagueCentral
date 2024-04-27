@@ -3,6 +3,7 @@ const Team = require('../models/Team');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
 const League = require('../models/League');
+const Organization = require('../models/Organization');
 
 // RETRIEVE the match with the given id, or an error message.
 const getMatch = async (req, res) => {

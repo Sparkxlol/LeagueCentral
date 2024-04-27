@@ -10,7 +10,6 @@ const organizationRoutes = require('./routes/organizations');
 const gameRoutes = require('./routes/games');
 const matchRoutes = require('./routes/matches');
 const teamRoutes = require('./routes/teams');
-const tournamentRoutes = require('./routes/tournaments');
 const authRoutes = require('./routes/auth');
 
 // Set up PORT and express.
@@ -28,7 +27,6 @@ app.use('/api/organizations', organizationRoutes);
 app.use('/api/games', gameRoutes);
 app.use('/api/matches', matchRoutes);
 app.use('/api/teams', teamRoutes);
-app.use('/api/tournaments', tournamentRoutes);
 app.use('/api/auth', authRoutes);
 
 // Attempt to connect to MongoDB.
