@@ -42,7 +42,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/league' element={<League />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/match' element={<Match />} />
+          <Route path='/match/:matchID' element={<Match />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/profileInfo' element={<ProfileInfo />} />
           <Route path='/profileSchedule' element={<ProfileSchedule />} />

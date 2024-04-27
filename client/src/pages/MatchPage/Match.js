@@ -1,86 +1,64 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import './Match.css'
 import user_icon from '../../Assets/person.png'
 
 function Match() {
 
-  // const location = useLocation()
-  // const {sport} = location.state
+    // const location = useLocation()
+    // const {sport} = location.state
 
+  const { matchID } = useParams();
+  const [match, setMatch] = useState('');
+  const [team, setTeam] = useState('');
+  const [loading, setLoading] = useState(true);
 
-//   return (
-//     <div className='match'>
-//       <h1>Sport Name</h1>
-//       <ul>
-//         <li className='first'>
-//           <h1>Descirpton</h1>
-//           <p>Sport informationdsfgsakhgadflkghfdsklgjhdsgklj gfdkjlghdsjkhlgdfsjg dfshgjkfdhsgkldsfh</p>
-//         </li>
-        
-//         <li>
-//           <h1>{sport}</h1>
-//           <p>Sport informationdsfgsakhgadflkghfdsklgjhdsgklj gfdkjlghdsjkhlgdfsjg dfshgjkfdhsgkldsfh</p>
-//         </li>
-//       </ul>
-//     </div>
-//   )
-// 
+  useEffect(() => {
+    axios.get(`/api/matches/${matchID}`).then(
+      res => {
+        setMatch(res.data);
+        console.log(res.data);
+      }
+    );
 
-const[match, setMatch] = useState('');
-const { matchID } = useParams();
-const getMatch = () => {
-  axios.get('api/matches', {
-    params: matchID
-  }).then(
-    res => {
-      setMatch(res.data);
-      console.log(res.data);
-    }
+    axios.get(`/api/matches/teams/${matchID}`).then(
+      res => {
+        setTeam(res.data);
+        console.log(res.data);
+      }
+    ).finally(() => {
+      setLoading(false);
+    });
+  }, [matchID]);
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <div className='container1'>
+      <div className='team-display'>
+          <img src={user_icon}/>
+          <div className='team'>{team[0].name}</div>
+          <p>VS</p>
+          <div className='team'>{team[1].name}</div>
+          <img src={user_icon}/>
+      </div>
+      <div className='match-info'>
+        Stankowski Field
+        <br></br>5:00 pm, April 25, 2024
+      </div>
+      <p className='roster-display'>Rosters:</p>
+      <hr className='solid'/>
+      <div className='roster'>
+        {/* INSERT ROSTER */}
+      </div>
+      <div className='roster'>
+        {/* INSERT ROSTER */}
+      </div>
+    </div>
   )
-}
-
-const [team, setTeam] = useState('');
-const getTeam = () => {
-  axios.get('api/matches/team', {
-    params: {
-      id: ''
-    }
-  }).then(
-    res => {
-      setTeam(res.data);
-      console.log(res.data);
-    }
-  )
-}
-
-getTeam()
-return (
-
-
-  <div className='container1'>
-    <div className='team-display'>
-      <img src={user_icon}/>
-        <div className='team'>Bulbous boys</div>
-        <p>VS</p>
-        <div className='team'>Fraudulent boys</div>
-      <img src={user_icon}/>
-    </div>
-    <div className='match-info'>
-      Stankowski Field
-      <br></br>5:00 pm, April 25, 2024
-    </div>
-    <p className='roster-display'>Rosters:</p>
-    <hr className='solid'/>
-    <div className='roster'>
-      {/* INSERT ROSTER */}
-    </div>
-    <div className='roster'>
-      {/* INSERT ROSTER */}
-    </div>
-  </div>
-)
 
 
 }

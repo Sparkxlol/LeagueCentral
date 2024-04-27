@@ -15,7 +15,7 @@ function Registration() {
     email: '',
     password: '',
     dateOfBirth: '',
-    gender: '',
+    gender: 'male',
     phone: ''
   })
   
