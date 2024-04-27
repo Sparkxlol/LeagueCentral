@@ -38,8 +38,8 @@ const createMatch = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
-// RETRIEVE the players from the match with the given ids. Assume match exists.
-const getPlayersFromMatch = async (req, res) => {
+// RETRIEVE the teams from the match with the given ids. Assume match exists.
+const getTeamsFromMatch = async (req, res) => {
     const responseBody = [];
     const { id } = req.params;
     const match = await Match.findById(id);
@@ -65,4 +65,4 @@ const getOrganizationFromMatch = async (req, res) => {
     res.status(200).json(organization);
 }
 
-module.exports = { getMatch, createMatch, getPlayersFromMatch, getOrganizationFromMatch };
+module.exports = { getMatch, createMatch, getTeamsFromMatch, getOrganizationFromMatch };
