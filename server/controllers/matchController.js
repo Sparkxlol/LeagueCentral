@@ -2,6 +2,7 @@ const Match = require('../models/Match');
 const Team = require('../models/Team');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
+const League = require('../models/League');
 
 // RETRIEVE the match with the given id, or an error message.
 const getMatch = async (req, res) => {
@@ -52,4 +53,15 @@ const getPlayersFromMatch = async (req, res) => {
     res.status(200).json(responseBody);
 }
 
-module.exports = { getMatch, createMatch, getPlayersFromMatch };
+// RETRIEVE the organization with a given match id.
+const getOrganizationFromMatch = async (req, res) => {
+    const { id } = req.params;
+    const match = await Match.findById(id);
+
+    const league = await League.findById(match.league);
+    const organization = await Organization.findById(league.organization);
+
+    res.status(200).json(organization);
+}
+
+module.exports = { getMatch, createMatch, getPlayersFromMatch, getOrganizationFromMatch };
