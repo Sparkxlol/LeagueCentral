@@ -14,33 +14,30 @@ function Match() {
   const [match, setMatch] = useState('');
   const [organization, setOrganization] = useState('');
   const [team, setTeam] = useState('');
+  const [roster1, setRoster1] = useState('');
+  const [roster2, setRoster2] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`/api/matches/${matchID}`).then(
-      res => {
-        setMatch(res.data);
-        console.log(res.data);
-      }
-    );
+    const fetchData = async () => {
+      const res1 = await axios.get(`/api/matches/${matchID}`)
+          setMatch(res1.data);
 
-    axios.get(`/api/matches/organization/${matchID}`).then(
-      res => {
-        setOrganization(res.data);
-        console.log(res.data);
-      }
-    )
+      const res2 = await axios.get(`/api/matches/organization/${matchID}`)
+          setOrganization(res2.data);
 
-    axios.get(`/api/matches/teams/${matchID}`).then(
-      res => {
-        setTeam(res.data);
-        console.log(res.data);
-      }
-    ).finally(() => {
-      setLoading(false);
-    });
+      const res3 = await axios.get(`/api/matches/teams/${matchID}`)
+          setTeam(res3.data);
+      
+      const res4 = await axios.get(`/api/teams/players/${res3.data[0]._id}`)
+          setRoster1(res4.data);
 
-
+      const res5 = await axios.get(`/api/teams/players/${res3.data[1]._id}`)
+          setRoster2(res5.data);
+        
+        setLoading(false);
+    }
+    fetchData();
   }, [matchID]);
 
   if (loading) {
