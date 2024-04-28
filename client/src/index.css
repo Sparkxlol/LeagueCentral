@@ -97,7 +97,14 @@ code {
   gap: 20px;
 }
 
-.homepage .section {
+.homepage .underline{
+  width: 80px;
+  height: 5px;
+  background: #2c2c2c;
+  border-radius: 10px;
+}
+
+.section {
   display: flex;
   align-items: center;
   margin: auto;
@@ -107,6 +114,17 @@ code {
   border-radius: 8px;
   font-size: 24px;
 }
+
+.section a {
+  margin: auto
+  
+}
+
+.section .date {
+  margin: auto
+}
+
+
 
 .match {
   margin-left: 20rem;

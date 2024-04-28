@@ -5,7 +5,7 @@ import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 import Match from "./MatchPage/Match";
 import axios from 'axios'
-
+import ActiveSport from "../components/ActiveSport";
 
 
 
@@ -15,32 +15,42 @@ const Home = (props) => {
     {/* <li><Link to='/Match' state={{ sport: 'basketball'}}>BasketBall</Link></li> */}
 
     {/*Get number of active sports */}
+    
+    
+    // const getActiveSports = () =>{
+        
+    //     axios.get('/api/leagues/active').then(
+    //         res=>{
+    //             arrayReturn = res.data
+                
+    //         }
+    //     )
+    //     return arrayReturn
+        
+    // }
 
-    const [sports, setSports] =useState('')
-    const getActiveSports = () =>{
+    const [sports, setSports] = useState('')
+    useEffect(() => {
         axios.get('/api/leagues/active').then(
-            res=>{
-                {/* setSports(res.data)*/}
-                console.log(res.data)
-            }
-        )
-    }
+          res => {
+            setSports(res.data);
+            console.log('im here')
+            console.log(sports);
+          }
+        );
 
-    getActiveSports()
+    }, []);
+
+    
     return (
         <Fragment>
            <div className="homepage">
-                <div className="header">Active Sports</div>
+            
+                <div className="header">Active Sports
+                <div className="underline"></div>
+                </div>
                 <div className="sections">
-                    <div className="section">
-                        Football
-                    </div>
-                    <div className="section">BasketBall</div>
-                    {/* {sports.map(sport => (
-                        <div className="section" key={sport.id}>
-                            {sport.name}
-                        </div>
-                    ))}  */}
+                    <ActiveSport arr={sports}/>
                 </div>
            </div>
         </Fragment>
