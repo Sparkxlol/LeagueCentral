@@ -1,4 +1,5 @@
 const Team = require('../models/Team');
+const User = require('../models/User');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
 
@@ -42,7 +43,7 @@ const addPlayerToTeam = async (req, res) => {
         return utilities.returnError(res, 404, 'No such team exists');
     }
 
-    const team = await Team.findOneAndUpdate({ _id: id}, { $push: { players: req.body.playerID }});
+    const team = await Team.findOneAndUpdate({ _id: id}, { $push: { players: req.body.playerID }}, { returnOriginal: false });
 
     if (!team) {
         return utilities.returnError(res, 404, 'No such team exists');
@@ -51,4 +52,20 @@ const addPlayerToTeam = async (req, res) => {
     res.status(200).json(team);
 }
 
-module.exports = { getTeam, createTeam, addPlayerToTeam };
+// RETRIEVES the players from the given team
+const getPlayersFromTeam = async (req, res) => {
+    const responseBody = [];
+    const { id } = req.params;
+    const team = await Team.findById(id);
+    const players = team.players;
+
+    for (var i = 0; i < players.length; i++) {
+        responseBody.push(
+            await User.findById(players[i])
+        )
+    }
+    
+    res.status(200).json(responseBody);
+}
+
+module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam };

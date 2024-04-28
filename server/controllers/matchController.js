@@ -2,6 +2,8 @@ const Match = require('../models/Match');
 const Team = require('../models/Team');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
+const League = require('../models/League');
+const Organization = require('../models/Organization');
 
 // RETRIEVE the match with the given id, or an error message.
 const getMatch = async (req, res) => {
@@ -36,8 +38,8 @@ const createMatch = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
-// RETRIEVE the players from the match with the given ids. Assume match exists.
-const getPlayersFromMatch = async (req, res) => {
+// RETRIEVE the teams from the match with the given ids. Assume match exists.
+const getTeamsFromMatch = async (req, res) => {
     const responseBody = [];
     const { id } = req.params;
     const match = await Match.findById(id);
@@ -52,4 +54,15 @@ const getPlayersFromMatch = async (req, res) => {
     res.status(200).json(responseBody);
 }
 
-module.exports = { getMatch, createMatch, getPlayersFromMatch };
+// RETRIEVE the organization with a given match id.
+const getOrganizationFromMatch = async (req, res) => {
+    const { id } = req.params;
+    const match = await Match.findById(id);
+
+    const league = await League.findById(match.league);
+    const organization = await Organization.findById(league.organization);
+
+    res.status(200).json(organization);
+}
+
+module.exports = { getMatch, createMatch, getTeamsFromMatch, getOrganizationFromMatch };

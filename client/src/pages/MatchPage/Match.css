@@ -17,11 +17,12 @@
 .team-display {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center; 
     max-width: 800px;
     margin: 20px auto;
-    gap: 180px
+    gap: 180px;
 }
+
 
 .team-display > img{
     margin: 0px -160px;

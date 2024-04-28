@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import './Match.css'
 import user_icon from '../../Assets/person.png'
+const {DateTime} = require('luxon')
 
 function Match() {
 
@@ -11,43 +12,52 @@ function Match() {
 
   const { matchID } = useParams();
   const [match, setMatch] = useState('');
+  const [organization, setOrganization] = useState('');
   const [team, setTeam] = useState('');
+  const [roster1, setRoster1] = useState('');
+  const [roster2, setRoster2] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`/api/matches/${matchID}`).then(
-      res => {
-        setMatch(res.data);
-        console.log(res.data);
-      }
-    );
+    const fetchData = async () => {
+      const res1 = await axios.get(`/api/matches/${matchID}`)
+          setMatch(res1.data);
 
-    axios.get(`/api/matches/teams/${matchID}`).then(
-      res => {
-        setTeam(res.data);
-        console.log(res.data);
-      }
-    ).finally(() => {
-      setLoading(false);
-    });
+      const res2 = await axios.get(`/api/matches/organization/${matchID}`)
+          setOrganization(res2.data);
+
+      const res3 = await axios.get(`/api/matches/teams/${matchID}`)
+          setTeam(res3.data);
+      
+      const res4 = await axios.get(`/api/teams/players/${res3.data[0]._id}`)
+          setRoster1(res4.data);
+
+      const res5 = await axios.get(`/api/teams/players/${res3.data[1]._id}`)
+          setRoster2(res5.data);
+        
+        setLoading(false);
+    }
+    fetchData();
   }, [matchID]);
 
   if (loading) {
     return <div>Loading...</div>
   }
 
+  const dt = DateTime.fromISO(match.date);
+
   return (
     <div className='container1'>
       <div className='team-display'>
-          <img src={user_icon}/>
+          <img src={user_icon} alt=''/>
           <div className='team'>{team[0].name}</div>
           <p>VS</p>
           <div className='team'>{team[1].name}</div>
-          <img src={user_icon}/>
+          <img src={user_icon} alt=''/>
       </div>
       <div className='match-info'>
-        Stankowski Field
-        <br></br>5:00 pm, April 25, 2024
+        {organization.address} 
+        <br></br>{dt.toLocaleString(DateTime.DATETIME_SHORT)}
       </div>
       <p className='roster-display'>Rosters:</p>
       <hr className='solid'/>
