@@ -5,7 +5,7 @@
     width: 800px;
     height: 800px;
     margin: auto;
-    padding-left: 20px;
+    padding: 0px 20px;
 }
 
 .match-info {
@@ -17,16 +17,34 @@
 
 .team-display {
     display: flex;
-    flex-direction: row;
     align-items: center; 
-    max-width: 800px;
-    margin: 20px auto;
-    gap: 180px;
+    padding: 20px 20px 0px 20px;
 }
 
+.team-display > div {
+    flex-grow: 1;
+    flex-basis: 0;
 
-.team-display > img{
-    margin: 0px -160px;
+    text-align: center;
+    align-items: center; 
+}
+
+.team-display > div:first-child {
+    display: flex;
+    gap: 25px;
+}
+
+.team-display > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.second {
+    background-color: aquamarine;
+}
+
+img{
     width: 50px;
     height: 50px;
     border-radius: 50%;

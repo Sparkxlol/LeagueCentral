@@ -9,8 +9,6 @@ const Organization = require('../models/Organization');
 const getMatch = async (req, res) => {
     const { id } = req.params;
 
-    console.log('huh');
-
     if (!mongoose.isValidObjectId(id)) {
         return utilities.returnError(res, 404, 'No such match exists');
     }

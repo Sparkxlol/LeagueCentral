@@ -60,11 +60,17 @@ function Match() {
   return (
     <div className='container1'>
       <div className='team-display'>
+        <div>
           <img src={(team[0].picture) ? team[0].picture : user_icon} alt=''/>
           <div className='team'>{team[0].name}</div>
+        </div>
+        <div>
           <p>VS</p>
+        </div>
+        <div>
           <div className='team'>{team[1].name}</div>
           <img src={(team[1].picture) ? team[1].picture : user_icon} alt=''/>
+        </div>
       </div>
       <div className='match-info'>
         {organization.address} 
