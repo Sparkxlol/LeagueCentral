@@ -11,10 +11,10 @@ function SportInfo(props) {
     
     <div className='section'>
         <Link to='/league' state={{leagueAndSport: props.entireLeague}}>{props.sport}</Link> 
-        <div className='date'>{startDate.toLocaleString(DateTime.DATE_SHORT)}--{endDate.toLocaleString(DateTime.DATE_SHORT)}</div>
+        <div className='date'>{startDate.toLocaleString(DateTime.DATE_SHORT)} - {endDate.toLocaleString(DateTime.DATE_SHORT)}</div>
         
     </div>
   )
 }
 
-export default SportInfo
+export default SportInfo;
