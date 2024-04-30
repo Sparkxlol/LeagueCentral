@@ -42,19 +42,19 @@ function Match() {
   }, [matchID]);
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div className='loading'>Loading...</div>
   }
 
   const dt = DateTime.fromISO(match.date);
 
   const team1 = []
   for(let i = 0; i < roster1.length; i++){
-    team1.push(<Roster firstName = {roster1[i].firstName} lastName = {roster1[i].lastName}/>)
+    team1.push(<Roster profilePicture = {roster1[i].profilePicture ? roster1[i].profilePicture : user_icon}firstName = {roster1[i].firstName} lastName = {roster1[i].lastName}/>)
   }
 
   const team2 = []
   for(let i = 0; i < roster2.length; i++){
-    team2.push(<Roster firstName = {roster2[i].firstName} lastName = {roster2[i].lastName}/>)
+    team2.push(<Roster profilePicture = {roster2[i].profilePicture ? roster2[i].profilePicture : user_icon} firstName = {roster2[i].firstName} lastName = {roster2[i].lastName}/>)
   }
 
   return (
@@ -65,7 +65,7 @@ function Match() {
           <div className='team'>{team[0].name}</div>
         </div>
         <div>
-          <p>VS</p>
+          <p className='vs'>VS</p>
         </div>
         <div>
           <div className='team'>{team[1].name}</div>
@@ -88,8 +88,6 @@ function Match() {
       </div>
     </div>
   )
-
-
 }
 
 

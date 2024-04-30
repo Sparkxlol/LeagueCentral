@@ -84,3 +84,30 @@ img{
     text-align: right;
     padding-right: 30px;
 }
+
+.roster-display img {
+    width: 25px;
+    height: 25px;
+}
+
+.nameList {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.nameList img {
+    padding-right: 3px;
+}
+
+.vs {
+    font-weight: 800;
+    font-size: large;
+    color: rgb(211, 139, 6);
+}
+
+.loading {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
