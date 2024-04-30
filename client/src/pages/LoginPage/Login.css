@@ -50,6 +50,8 @@
 
 .input img{
     margin: 0px 20px;
+    width: 35px;
+    height: 35px;
 }
 
 .input input{

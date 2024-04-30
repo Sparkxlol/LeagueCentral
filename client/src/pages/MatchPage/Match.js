@@ -19,6 +19,7 @@ function Match() {
   const [roster2, setRoster2] = useState('');
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
     const fetchData = async () => {
       const res1 = await axios.get(`/api/matches/${matchID}`)
@@ -73,8 +74,14 @@ function Match() {
         </div>
       </div>
       <div className='match-info'>
+      <div className='score'>
+        {match.team1Score !== null ? match.winnerScore : ''}
+      </div>
         {organization.address} 
         <br></br>{dt.toLocaleString(DateTime.DATETIME_SHORT)}
+        <div className='score'>
+        {match.team2Score !== null ? match.loserScore : ''}
+      </div>
       </div>
       <p className='rost'>Rosters:</p>
       <hr className='solid'/>

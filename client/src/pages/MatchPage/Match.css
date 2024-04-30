@@ -9,10 +9,18 @@
 }
 
 .match-info {
+    display: flex;
+    flex-direction: row;
     font-size: 14px;
     font-weight: 500;
     padding-top: 10px;
     text-align: center;
+    justify-content: center;
+}
+
+.score {
+    margin: auto;
+    font-size: 28px;
 }
 
 .team-display {
@@ -24,7 +32,6 @@
 .team-display > div {
     flex-grow: 1;
     flex-basis: 0;
-
     text-align: center;
     align-items: center; 
 }
@@ -80,7 +87,6 @@ img{
 }
 
 .roster2 {
-    flex: 1;
     text-align: right;
     padding-right: 30px;
 }
@@ -97,7 +103,7 @@ img{
 }
 
 .nameList img {
-    padding-right: 3px;
+    padding-right: 5px;
 }
 
 .vs {
@@ -111,3 +117,4 @@ img{
     font-size: 24px;
     text-align: center;
 }
+

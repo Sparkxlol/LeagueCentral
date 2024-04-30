@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const matchSchema = new mongoose.Schema({
-    winnerScore: {
+    team1Score: {
         type: Number,
         required: [true, 'This field is required'],
     },
-    loserScore: {
+    team2Score: {
         type: Number,
         required: [true, 'This field is required'],
     },
