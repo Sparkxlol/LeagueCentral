@@ -1,21 +1,36 @@
-import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import {  useParams } from 'react-router-dom';
+import user_icon from '../../Assets/person.png';
 
 function Profile() {
+    const { profileID } = useParams();
 
-  const location = useLocation()
-  const {state} = location
+    const [user, setUser] = useState('');
+    const [teams, setTeams] = useState('');
 
-  const user = state.user
+    const [loading, setLoading] = useState('')
 
+    useEffect (() => {
+        const fetchData = async () => {
+            setUser(await axios.get(`/api/users/${profileID}`));
+            setTeams(await axios.get(`/api/users/teams/${profileID}`));
 
-  return (
-    <>
-      <div className='container1'>{user.firstName} {user.lastName}</div>
-      
-    </>
-  )
+            setLoading(false);
+        }
+
+        fetchData();
+    }, [profileID]);
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
+    return (
+        <div>
+            Profile
+        </div>
+    )
 }
 
-export default Profile
-
+export default Profile;
