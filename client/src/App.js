@@ -40,7 +40,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/league/:leagueID' element={<League />} />
+          <Route path='/league/:id' element={<League />} />
           <Route path='/login/:id' element={<Login />} />
           <Route path='/match/:matchID' element={<Match />} />
           <Route path='/profile/:id' element={<Profile />} />

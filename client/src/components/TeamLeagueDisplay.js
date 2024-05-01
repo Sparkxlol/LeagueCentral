@@ -5,23 +5,28 @@ import { Link } from 'react-router-dom'
 
 function TeamLeagueDisplay(props) {
 
-  console.log('hi')
-  console.log(props.team)
-
+  
+  const [loading, setLoading] = useState(true);
   const [competingTeams, setcompetingTeams] = useState('')
     useEffect(() => {
       const fetchData = async () => {
         const res = await axios.get(`/api/teams/${props.team}`)
           setcompetingTeams(res.data)
-        
+        setLoading(false)
       }
       fetchData()
     }, [props.team]);
 
-    console.log(competingTeams)
+    
+    if (loading) {
+      return <div className='loading'>Loading...</div>
+    }
+
+    
+  const link = '/team/' + competingTeams._id
   return (
     <div className='teamsInLeague'>
-        <Link to='/team' state={{team: competingTeams}}>{competingTeams.name}</Link>
+        <Link to={link} >{competingTeams.name}</Link>
         <div className='teamDescription'>: {competingTeams.description}</div>
         
     </div>

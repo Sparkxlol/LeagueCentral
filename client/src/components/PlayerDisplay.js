@@ -17,9 +17,10 @@ function PlayerDisplay(props) {
 
     console.log(playerOnTeam)
 
+    const link = '/Profile/' + playerOnTeam._id 
   return (
     <div className='playersOnTeam'>
-      <Link to='/Profile' state={{user: playerOnTeam}}>{playerOnTeam.firstName} {playerOnTeam.lastName}</Link>
+      <Link to={link} >{playerOnTeam.firstName} {playerOnTeam.lastName}</Link>
     </div>
   )
 }

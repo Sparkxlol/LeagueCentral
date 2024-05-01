@@ -4,23 +4,24 @@ import {  useParams } from 'react-router-dom';
 import user_icon from '../../Assets/person.png';
 
 function Profile() {
-    const { profileID } = useParams();
+    const { id } = useParams();
 
     const [user, setUser] = useState('');
     const [teams, setTeams] = useState('');
 
     const [loading, setLoading] = useState('')
+    console.log(id)
 
     useEffect (() => {
         const fetchData = async () => {
-            setUser(await axios.get(`/api/users/${profileID}`));
-            setTeams(await axios.get(`/api/users/teams/${profileID}`));
+            setUser(await axios.get(`/api/users/${id}`));
+            setTeams(await axios.get(`/api/users/teams/${id}`));
 
             setLoading(false);
         }
 
         fetchData();
-    }, [profileID]);
+    }, [id]);
 
     if (loading) {
         return <div>Loading...</div>

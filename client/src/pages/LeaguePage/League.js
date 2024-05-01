@@ -12,8 +12,8 @@ function League() {
     // const {sport} = location.state
   
   //const location = useLocation()
-  const {leagueID} = useParams()
-  console.log(leagueID)
+  const {id} = useParams()
+  console.log(id)
   const [league, setLeague] = useState('')
   const [sport, setSport] = useState('')
   const [loading, setLoading] = useState(true);
@@ -21,33 +21,33 @@ function League() {
 
     useEffect(() => {
       const fetchData = async () => {
-        const res = await axios.get(`/api/leagues/${leagueID}`)
+        const res = await axios.get(`/api/leagues/${id}`)
           setLeague(res.data)
-        
+          setSport(res.data.sport)
         setLoading(false)
       }
       fetchData()
-    }, [leagueID]);
+    }, [id]);
   
     if (loading) {
       return <div className='loading'>Loading...</div>
     }
   
-  console.log({league})
-  console.log('kys')
-  
-  
+ 
   
   const rows = []
+  
   for(let i = 0; i < league.teams.length; i++) {
     rows.push(<TeamLeagueDisplay team={league.teams[i]}/>)
   }
+  
+  
 
-  const matchRows = []
+  //const matchRows = []
   // matchRows.push(<MatchList match={matchArray[i]} />)
 
   return (
-    <>
+      
       <div className='container1'>
         
         <p className='vs'>{sport.name}</p>
@@ -64,7 +64,7 @@ function League() {
 
         <p className='rost'>Upcoming Matches:</p>
       </div>
-    </>
+    
   )
 }
 
