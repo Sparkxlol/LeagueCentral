@@ -1,0 +1,88 @@
+.team {
+    display: flex;
+    flex-direction: row;
+    font-size: 36px;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    color: white;
+}
+
+.solid {
+    border: 2px solid #bbb;
+    width: auto;
+    margin-top: 10px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+}
+
+.container1 {
+    display: flex;
+    background-color: grey;
+    border-radius: 20px;
+    margin-left: 15px;
+    width: 500px;
+}
+
+.container2 {
+    display: flex;
+    background-color: grey;
+    border-radius: 20px;
+    margin-left: 15px;
+    width: 600px;
+    height: 300px;
+}
+
+.desc {
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.roster {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    gap: 10px;
+    max-width: 600px;
+}
+
+.roster img {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    margin-right: 5px;
+}
+
+.roster a{
+    color: white;
+    text-decoration: none;
+}
+
+.roster-header {
+    color: gold;
+    font-size: 28px;
+    font-weight: 500;
+    width: 500px;
+    text-align: center;
+    margin: 5px;
+}
+
+.desc-header {
+    color: gold;
+    font-size: 28px;
+    font-weight: 500;
+    width: 600px;
+    text-align: center;
+    margin: 5px;
+}
+
+.playersOnTeam > *{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+}

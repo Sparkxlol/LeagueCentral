@@ -5,7 +5,7 @@ import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 import Match from "./MatchPage/Match";
 import axios from 'axios'
-import ActiveSport from '../components/ActiveSport'
+import ActiveSport from '../components/activeSport'
 
 
 
