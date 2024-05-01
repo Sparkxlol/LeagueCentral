@@ -1,0 +1,115 @@
+.container1 {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: auto;
+    margin: auto;
+    padding: 0px 20px;
+    padding-bottom: 100px;
+}
+
+.match-info {
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 0px;
+    text-align: center;
+}
+
+.team-display {
+    display: flex;
+    align-items: center; 
+    padding: 20px 20px 0px 20px;
+}
+
+.team-display > div {
+    flex-grow: 1;
+    flex-basis: 0;
+
+    text-align: center;
+    align-items: center; 
+}
+
+.team-display > div:first-child {
+    display: flex;
+    gap: 25px;
+}
+
+.team-display > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.second {
+    background-color: aquamarine;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.team {
+    color: cadetblue;
+    font-weight: 500;
+}
+
+.solid {
+    border: 2px solid #bbb;
+    width: 750px;
+    margin-top: -10px;
+}
+
+.rost {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.roster-display {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+}
+
+.roster1 {
+    flex: 1;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.roster2 {
+    flex: 1;
+    text-align: right;
+    padding-right: 30px;
+}
+
+.roster-display img {
+    width: 25px;
+    height: 25px;
+}
+
+.nameList {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.nameList img {
+    padding-right: 3px;
+}
+
+.container1 .vs {
+    font-weight: 500;
+    font-size: 50px;
+    text-align: center;
+    color: rgb(211, 139, 6);
+}
+
+.loading {
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}

@@ -7,11 +7,11 @@ import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-
 import League from './pages/LeaguePage/League';
 import Login from './pages/LoginPage/Login';
 import Match from './pages/MatchPage/Match';
-import Profile from './pages/Profile';
+import Profile from './pages/ProfilePage/Profile'
 import ProfileInfo from './pages/ProfileInfo';
 import ProfileSchedule from './pages/ProfileSchedule';
 import Registration from './pages/RegistrationPage/Registration';
-import Team from './pages/Team';
+import Team from './pages/TeamPage/Team';
 import TeamInvite from './pages/TeamInvite';
 import Tournament from './pages/Tournament';
 import TournamentBracket from './pages/TournamentBracket';
@@ -40,16 +40,16 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/league' element={<League />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/league/:leagueID' element={<League />} />
+          <Route path='/login/:id' element={<Login />} />
           <Route path='/match/:matchID' element={<Match />} />
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/profileInfo' element={<ProfileInfo />} />
-          <Route path='/profileSchedule' element={<ProfileSchedule />} />
-          <Route path='/registration' element={<Registration />} />
-          <Route path='/team' element={<Team />} />
-          <Route path='/teamInvite' element={<TeamInvite />} />
-          <Route path='/tournament' element={<Tournament />} />
+          <Route path='/profile/:id' element={<Profile />} />
+          <Route path='/profileInfo/:id' element={<ProfileInfo />} />
+          <Route path='/profileSchedule/:id' element={<ProfileSchedule />} />
+          <Route path='/registration/:id' element={<Registration />} />
+          <Route path='/team/:id' element={<Team />} />
+          <Route path='/teamInvite/:id' element={<TeamInvite />} />
+          <Route path='/tournament/:id' element={<Tournament />} />
           <Route path='/tournamentBracket' element={<TournamentBracket />} />
           <Route path='/tournamentSchedule' element={<TournamentSchedule />} />
         </Routes>

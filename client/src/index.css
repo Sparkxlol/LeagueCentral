@@ -57,7 +57,20 @@ code {
   background-color: #ac7807;
 }
 
+.teamsInLeague {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: 776px;
+  height: fit-content;
+  background: lightgray;
+  border-radius: 8px;
+  font-size: 24px;
+}
 
+.teamsInLeague .teamDescription {
+  
+}
 
 .homepage {
     display: flex;
@@ -123,6 +136,7 @@ code {
 .section .date {
   margin: auto
 }
+
 
 
 

@@ -4,14 +4,16 @@ import {  useParams } from 'react-router-dom'
 import './Match.css'
 import user_icon from '../../Assets/person.png'
 import Roster from '../../components/Roster';
+import { useLocation} from 'react-router-dom'
 const {DateTime} = require('luxon')
+
 
 function Match() {
 
     // const location = useLocation()
-    // const {sport} = location.state
+    // const {state} = location.state
 
-  const { matchID } = useParams();
+  const  {matchID}  = useParams()
   const [match, setMatch] = useState('');
   const [organization, setOrganization] = useState('');
   const [team, setTeam] = useState('');
