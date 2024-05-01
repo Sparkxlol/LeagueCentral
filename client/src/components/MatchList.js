@@ -6,23 +6,29 @@ import axios from 'axios'
 
 function MatchList(props) {
 
-    const matchID = props.match
+    const matchID = props.match._id
+    console.log('hiiii')
 
     const [teamsInMatch, setteamsInMatch] = useState('')
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
       const fetchData = async () => {
-        const res = await axios.get(`/api/matches/teams/${props.match}`)
+        const res = await axios.get(`/api/matches/teams/${matchID}`)
           setteamsInMatch(res.data)
-        
+        setLoading(false)
       }
       fetchData()
-    }, [props.match]);
+    }, [matchID]);
 
+    if (loading) {
+      return <div className='loading'>Loading...</div>
+    }
+    console.log("whats good")
 
-
+    const link = '/Match/' + matchID
   return (
     <div className='matchList'>
-      <Link to='/Match' state={{id: matchID}}>{teamsInMatch[0].name} vs {teamsInMatch[1].name}</Link>
+      <Link to={link}>{teamsInMatch[0].name} vs {teamsInMatch[1].name}</Link>
     </div>
   )
 }
