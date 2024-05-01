@@ -38,7 +38,7 @@ const getLeague = async (req, res) => {
         return utilities.returnError(res, 404, 'No such league exists');
     }
 
-    const league = await League.findById(id).populate('sport');
+    const league = await League.findById(id).populate('sport').populate('teams');
 
     if (!league) {
         return utilities.returnError(res, 404, 'No such league exists');

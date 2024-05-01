@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { useAsyncError, useLocation, useParams } from 'react-router-dom'
 import TeamLeagueDisplay from '../../components/TeamLeagueDisplay'
 import './League.css'
 import MatchList from '../../components/MatchList'
@@ -16,6 +16,7 @@ function League() {
   console.log(id)
   const [league, setLeague] = useState('')
   const [sport, setSport] = useState('')
+  const [matchRows, setmatchRows] = useState('')
   const [loading, setLoading] = useState(true);
 
 
@@ -24,6 +25,8 @@ function League() {
         const res = await axios.get(`/api/leagues/${id}`)
           setLeague(res.data)
           setSport(res.data.sport)
+        const res2 = await axios.get(`/api/leagues/matches/${id}`)
+          setmatchRows(res2.data)
         setLoading(false)
       }
       fetchData()
@@ -32,8 +35,8 @@ function League() {
     if (loading) {
       return <div className='loading'>Loading...</div>
     }
-  
- 
+    
+    
   
   const rows = []
   
@@ -41,11 +44,16 @@ function League() {
     rows.push(<TeamLeagueDisplay team={league.teams[i]}/>)
   }
   
-  
-
-  //const matchRows = []
-  // matchRows.push(<MatchList match={matchArray[i]} />)
-
+    console.log('matchrowhere')
+    console.log(matchRows.length)
+    console.log(matchRows)
+    const matchList = []
+    for(let i = 0; i < matchRows.length; i++) {
+      console.log("im hereeee")
+      console.log(matchRows[i])
+      matchList.push(<MatchList match={matchRows[i]} />)
+    }
+    
   return (
       
       <div className='container1'>
@@ -63,6 +71,7 @@ function League() {
         {rows}
 
         <p className='rost'>Upcoming Matches:</p>
+        {matchList}
       </div>
     
   )
