@@ -1,5 +1,6 @@
 const League = require('../models/League');
-const Sport = require('../models/Sport')
+const Sport = require('../models/Sport');
+const Match = require('../models/Match');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
 
@@ -37,7 +38,7 @@ const getLeague = async (req, res) => {
         return utilities.returnError(res, 404, 'No such league exists');
     }
 
-    const league = await League.findById(id);
+    const league = await League.findById(id).populate('sport');
 
     if (!league) {
         return utilities.returnError(res, 404, 'No such league exists');
@@ -60,4 +61,12 @@ const createLeague = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
-module.exports = { getActiveLeagues, getLeague, createLeague };
+// RETRIEVE the matches from the given league
+const getMatchesFromLeague = async (req, res) => {
+    const { id } = req.params;
+    const matches = await Match.find({ league: id });
+    
+    res.status(200).json(matches);
+}
+
+module.exports = { getActiveLeagues, getLeague, createLeague, getMatchesFromLeague };

@@ -12,4 +12,6 @@ router.post('/', userController.createUser); // Create single user with request 
 router.delete('/:id', userController.deleteUser); // Delete single user by id
 router.patch('/:id', userController.updateUser); // Update single user by id
 
+router.get('/teams/:id', userController.getTeamsFromUser); // Get teams from the user id.
+
 module.exports = router;

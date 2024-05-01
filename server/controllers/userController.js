@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Team = require('../models/Team');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const utilities = require('./utilities');
@@ -100,4 +101,14 @@ const logoutUser = (req, res) => {
     res.status(200).json({});
 }
 
-module.exports = { getUser, createUser, deleteUser, updateUser, registerUser, loginUser, logoutUser };
+// RETRIEVE teams from the given player id.
+const getTeamsFromUser = async (req, res) => {
+    const { id } = req.params;
+
+    const teams = await Team.find({ players: id })
+    console.log(teams[0]);
+    
+    res.status(200).json(teams);
+}
+
+module.exports = { getUser, createUser, deleteUser, updateUser, registerUser, loginUser, logoutUser, getTeamsFromUser };
