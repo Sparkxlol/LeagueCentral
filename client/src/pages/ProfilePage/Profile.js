@@ -10,12 +10,14 @@ function Profile() {
     const [teams, setTeams] = useState('');
 
     const [loading, setLoading] = useState('')
-    console.log(id)
 
     useEffect (() => {
         const fetchData = async () => {
-            setUser(await axios.get(`/api/users/${id}`));
-            setTeams(await axios.get(`/api/users/teams/${id}`));
+            const userRes = await axios.get(`/api/users/${id}`);
+            setUser(userRes.data);
+
+            const teamsRes = await axios.get(`/api/users/teams/${id}`);
+            setTeams(teamsRes.data);
 
             setLoading(false);
         }

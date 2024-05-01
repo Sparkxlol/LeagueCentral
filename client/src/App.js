@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Home from './pages/Home';
+import Home from './pages/HomePage/Home';
 import React, { Fragment } from 'react';
 import { useEffect, useState } from 'react';
 import { createBrowserRouter, Route, RouterProvider, Routes} from 'react-router-dom'
@@ -39,19 +39,20 @@ function App() {
       <Navbar />
       <div className='container'>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Login />} />
           <Route path='/league/:id' element={<League />} />
-          <Route path='/login/:id' element={<Login />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/match/:matchID' element={<Match />} />
           <Route path='/profile/:id' element={<Profile />} />
           <Route path='/profileInfo/:id' element={<ProfileInfo />} />
           <Route path='/profileSchedule/:id' element={<ProfileSchedule />} />
-          <Route path='/registration/:id' element={<Registration />} />
+          <Route path='/registration' element={<Registration />} />
           <Route path='/team/:id' element={<Team />} />
           <Route path='/teamInvite/:id' element={<TeamInvite />} />
           <Route path='/tournament/:id' element={<Tournament />} />
           <Route path='/tournamentBracket' element={<TournamentBracket />} />
           <Route path='/tournamentSchedule' element={<TournamentSchedule />} />
+          <Route path='/:id' element={<Home />} />
         </Routes>
       </div>
     </Fragment>
