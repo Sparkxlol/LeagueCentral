@@ -19,7 +19,7 @@
     flex-direction: row;
 }
 
-.container1 {
+.top .container1 {
     display: flex;
     background-color: grey;
     border-radius: 20px;

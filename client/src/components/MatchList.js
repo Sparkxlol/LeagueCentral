@@ -7,7 +7,7 @@ import axios from 'axios'
 function MatchList(props) {
 
     const matchID = props.match._id
-    console.log('hiiii')
+    
 
     const [teamsInMatch, setteamsInMatch] = useState('')
     const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ function MatchList(props) {
     if (loading) {
       return <div className='loading'>Loading...</div>
     }
-    console.log("whats good")
+    
 
     const link = '/Match/' + matchID
   return (
