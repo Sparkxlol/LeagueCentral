@@ -2,7 +2,14 @@ const Sport = require('../models/Sport');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
 
-// CREATE the league with the given request body parameters.
+// RETRIEVE all sports
+const getSports = async (req, res) => {
+    const sports = await Sport.find({});
+
+    res.status(200).json(sports);
+}
+
+// CREATE the sport with the given request body parameters.
 const createSport = async (req, res) => {
     const { name, description, maxPlayers, maxRoster, picture } = req.body;
 
@@ -16,4 +23,4 @@ const createSport = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
-module.exports = { createSport };
+module.exports = { createSport, getSports };
