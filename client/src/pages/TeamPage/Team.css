@@ -19,7 +19,7 @@
     flex-direction: row;
 }
 
-.container1 {
+.top .container1 {
     display: flex;
     background-color: grey;
     border-radius: 20px;
@@ -42,7 +42,7 @@
     font-size: 18px;
 }
 
-.roster {
+.container1 .roster {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
@@ -50,14 +50,14 @@
     max-width: 600px;
 }
 
-.roster img {
+.container1 .roster img {
     width: 45px;
     height: 45px;
     background-color: white;
     margin-right: 5px;
 }
 
-.roster a{
+.container1 .roster a{
     color: white;
     text-decoration: none;
 }
