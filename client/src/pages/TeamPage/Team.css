@@ -180,3 +180,33 @@
 .l {
     color: red;
 }
+
+.team-sport-header {
+    color: gold;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin: 10px;
+}
+
+.team-sport-container {
+    display: flex;
+    background-color: grey;
+    border-radius: 20px;
+    margin-left: 15px; 
+    height: 500px;
+}
+
+.sport-info {
+    padding-left: 15px;
+    color: white;
+    font-size: 22px;
+}
+
+.sport-info-description {
+    font-size: 18px;
+    color: black;
+    padding-left: 15px;
+    margin-top: -20px;
+    font-weight: 500;
+}

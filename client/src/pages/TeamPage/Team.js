@@ -16,6 +16,7 @@ function Team() {
   const [loading, setLoading] = useState(true);
   const [team, setTeam] = useState('');
   const [lastMatch, setLastMatch] = useState('');
+  const [league, setLeague] = useState('');
     
   useEffect(() => {
       const fetchData = async () => {
@@ -23,6 +24,8 @@ function Team() {
           setTeam(res.data);
         const res1 = await axios.get(`/api/teams/latest/${id}`)
           setLastMatch(res1.data);
+        const res2 = await axios.get(`/api/teams/league/${id}`)
+          setLeague(res2.data);
         setLoading(false)
       }
       fetchData()
@@ -74,6 +77,16 @@ function Team() {
           <p className='desc-header'>Description:</p>
           <div className='container2'>
             <div className='desc'>{team.description}</div>
+          </div>
+          <p className='team-sport-header'>Sport:</p>
+          <div className='team-sport-container'>
+            <div className='the-sport'>
+              <p className='sport-info'>Sport: {league.sport.name}</p>
+              <p className='sport-info'>Players on field: {league.sport.maxPlayers}</p>
+              <p className='sport-info'>Max players on team: {league.sport.maxRoster}</p>
+              <p className='sport-info'>Description: </p>
+              <p className='sport-info-description'>{league.sport.description}</p>
+            </div>
           </div>
         </div>
       </div>
