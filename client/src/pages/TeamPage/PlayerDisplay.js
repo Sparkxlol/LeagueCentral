@@ -17,7 +17,6 @@ function PlayerDisplay(props) {
       fetchData()
     }, [props.player]);
 
-    console.log(playerOnTeam)
 
     const link = '/Profile/' + playerOnTeam._id 
   return (

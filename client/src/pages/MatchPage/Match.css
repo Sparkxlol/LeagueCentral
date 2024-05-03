@@ -20,7 +20,8 @@
 
 .score {
     margin: auto;
-    font-size: 28px;
+    font-size: 36px;
+    margin-top: -10px;
 }
 
 .team-display {
@@ -58,11 +59,12 @@ img{
 }
 
 .team {
-    color: cadetblue;
+    color: cadetblue; 
     font-weight: 500;
+    font-size: large;
 }
 
-.solid {
+.solid1 {
     border: 2px solid #bbb;
     width: 750px;
     margin-top: -10px;

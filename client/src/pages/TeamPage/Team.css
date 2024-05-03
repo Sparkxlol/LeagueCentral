@@ -1,11 +1,17 @@
-.team {
+.team1 {
     display: flex;
     flex-direction: row;
     font-size: 36px;
+    font-weight: 600;
     align-items: center;
     padding: 10px;
     gap: 15px;
-    color: white;
+    color: rgb(32, 135, 198);
+}
+
+.team1 img {
+    width: 80px;
+    height: 80px;
 }
 
 .solid {
@@ -19,12 +25,13 @@
     flex-direction: row;
 }
 
-.top .container1 {
+.container4 {
     display: flex;
     background-color: grey;
     border-radius: 20px;
     margin-left: 15px;
     width: 500px;
+    max-height: 75%;
 }
 
 .container2 {
@@ -33,7 +40,7 @@
     border-radius: 20px;
     margin-left: 15px;
     width: 600px;
-    height: 300px;
+    
 }
 
 .desc {
@@ -42,22 +49,24 @@
     font-size: 18px;
 }
 
-.container1 .roster {
+.container4 .roster {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     gap: 10px;
     max-width: 600px;
 }
 
-.container1 .roster img {
+.container4 .roster img {
     width: 45px;
     height: 45px;
     background-color: white;
     margin-right: 5px;
 }
 
-.container1 .roster a{
+.container4 .roster a{
     color: white;
     text-decoration: none;
 }
@@ -85,4 +94,89 @@
     flex-direction: row;
     align-items: center;
     font-size: 18px;
+}
+
+.last-match {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+}
+
+.last-match-header {
+    text-align: center;
+    color: gold;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.last-match-container {
+    background-color: grey;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0px 40px 0px 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.last-match-container > div {
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: center;
+    align-items: center; 
+}
+
+.last-match-container > div:first-child {
+    display: flex;
+    gap: 25px;
+}
+
+.last-match-container > div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+}
+
+.teamz {
+    font-size: 36px;
+    color: aquamarine;
+}
+
+.date {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.last-match-container img {
+    width: 80px;
+    height: 80px;
+}
+
+.scoreDisplay {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+    margin-bottom: -40px;
+    font-size: 28px;
+    font-weight: 700
+}
+
+.theScore {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    gap: 5px;
+}
+
+.w {
+    color: rgb(30, 197, 30);
+}
+
+.l {
+    color: red;
 }

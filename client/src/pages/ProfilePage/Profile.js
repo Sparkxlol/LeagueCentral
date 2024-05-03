@@ -31,8 +31,7 @@ function Profile() {
         return <div>Loading...</div>
     }
 
-    console.log(user)
-    console.log(teams)
+
     const activeTeams = []
     
     for(let i = 0; i < teams.length; i++) {

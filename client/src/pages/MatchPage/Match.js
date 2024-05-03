@@ -76,17 +76,17 @@ function Match() {
         </div>
       </div>
       <div className='match-info'>
-      <div className='score'>
-        {match.team1Score !== null ? match.winnerScore : ''}
-      </div>
-        {organization.address} 
-        <br></br>{dt.toLocaleString(DateTime.DATETIME_SHORT)}
         <div className='score'>
-        {match.team2Score !== null ? match.loserScore : ''}
-      </div>
+          {match.team1Score !== null ? match.team1Score : ''}
+        </div>
+          {organization.address} 
+          <br></br>{dt.toLocaleString(DateTime.DATETIME_SHORT)}
+          <div className='score'>
+          {match.team2Score !== null ? match.team2Score : ''}
+          </div>
       </div>
       <p className='rost'>Rosters:</p>
-      <hr className='solid'/>
+      <hr className='solid1'/>
       <div className='roster-display'>
         <div className='roster1'>
           {team1}
