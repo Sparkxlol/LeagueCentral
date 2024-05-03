@@ -17,6 +17,9 @@ import Tournament from './pages/Tournament';
 import TournamentBracket from './pages/TournamentBracket';
 import TournamentSchedule from './pages/TournamentSchedule';
 import Navbar from './components/Navbar';
+import OrganizerLeague from './pages/OrganizerPages/LeaguePage/League';
+import OrganizerMatch from './pages/OrganizerPages/MatchPage/Match';
+import OrganizerOrganization from './pages/OrganizerPages/OrganizationPage/Organization';
 
 
 
@@ -53,6 +56,10 @@ function App() {
           <Route path='/tournamentBracket' element={<TournamentBracket />} />
           <Route path='/tournamentSchedule' element={<TournamentSchedule />} />
           <Route path='/:id' element={<Home />} />
+
+          <Route path='/organizer/league/:id' element={<OrganizerLeague />} />
+          <Route path='/organizer/match/:id' element={<OrganizerMatch />} />
+          <Route path='/organizer/organization/:id' element={<OrganizerOrganization />} />
         </Routes>
       </div>
     </Fragment>
