@@ -10,11 +10,17 @@ function Match(props) {
     console.log(teams);
 
     return (
-        <div className='row'>
-            <div>
-                { match.date }
-            </div>
-            <div>
+        <div className='section'>
+            <div className='row'>
+                <div>
+                    hi
+                </div>
+                <div>
+                    hi
+                </div>
+                <div>
+                    hi
+                </div>
             </div>
         </div>
     )
