@@ -2,6 +2,13 @@ const Organization = require('../models/Organization');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
 
+// RETRIEVE all organizations
+const getOrganizations = async (req, res) => {
+    const organizations = await Organization.find({});
+
+    res.status(200).json(organizations);
+}
+
 // RETRIEVE the organization with the given id, or an error message.
 const getOrganization = async (req, res) => {
     const { id } = req.params;
@@ -33,4 +40,4 @@ const createOrganization = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
-module.exports = { getOrganization, createOrganization };
+module.exports = { getOrganizations, getOrganization, createOrganization };
