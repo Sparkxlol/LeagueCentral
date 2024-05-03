@@ -15,12 +15,17 @@ function Create() {
 
     const [sports, setSports] = useState('');
 
-    const [loading, setLoading] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            const sports = await axios.get(`/api/sports/`)
-            setSports(sports);
+            const sportRes = await axios.get(`/api/sports/`);
+            setSports(sportRes.data.map(obj => { return { id: obj._id, name: obj.name } }));
+
+            setDetails({
+                ...details,
+                sport: sportRes.data[0]._id
+            })
 
             setLoading(false);
         }
@@ -33,22 +38,23 @@ function Create() {
     }
 
     function handleChange(event) {
-        const value = event.target.value;
-
-        setDetails({
-            ...details,
-            [event.target.name]: value
+        setDetails((prev) => {
+            return { ...prev, [event.target.name]: event.target.value }
         })
     }
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        axios.post('/api/leagues/', details).then((res) => {
+        handleChange(event);
+
+        const requestBody = details;
+
+        axios.post('/api/leagues/', requestBody).then((res) => {
             console.log(res.status, res.data);
         })
     }
-
+    
     return (
         <div className='login'>
             <div className='header'>
@@ -56,8 +62,10 @@ function Create() {
             </div>
             <div className='inputs'>
                 <div className='input'>
-                    <select name='sports' id='sport'>
-                        <options placeholder='Sport ID' type='text' id='sport' name='sport' onChange={handleChange}/>
+                    <select name='sport' onChange={handleChange}>
+                        {sports.map((sport, index) => (
+                            <option key={index} value={sport.id}>{sport.name}</option>
+                        ))}
                     </select>
                 </div>
                 <div className='input'>
