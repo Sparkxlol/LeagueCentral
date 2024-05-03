@@ -80,7 +80,13 @@ function Team() {
           </div>
           <p className='team-sport-header'>Sport:</p>
           <div className='team-sport-container'>
-            <div className='the-sport'>description</div>
+            <div className='the-sport'>
+              <p className='sport-info'>Sport: {league.sport.name}</p>
+              <p className='sport-info'>Players on field: {league.sport.maxPlayers}</p>
+              <p className='sport-info'>Max players on team: {league.sport.maxRoster}</p>
+              <p className='sport-info'>Description: </p>
+              <p className='sport-info-description'>{league.sport.description}</p>
+            </div>
           </div>
         </div>
       </div>

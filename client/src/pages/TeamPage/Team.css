@@ -197,6 +197,16 @@
     height: 500px;
 }
 
-.the-sport {
-    
+.sport-info {
+    padding-left: 15px;
+    color: white;
+    font-size: 22px;
+}
+
+.sport-info-description {
+    font-size: 18px;
+    color: black;
+    padding-left: 15px;
+    margin-top: -20px;
+    font-weight: 500;
 }
