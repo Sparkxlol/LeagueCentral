@@ -1,4 +1,5 @@
 const Team = require('../models/Team');
+const Match = require('../models/Match');
 const User = require('../models/User');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
@@ -68,4 +69,12 @@ const getPlayersFromTeam = async (req, res) => {
     res.status(200).json(responseBody);
 }
 
-module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam };
+// RETRIEVES the latest match from the given team
+const getLatestMatch = async (req, res) => {
+    const { id } = req.params;
+    const match = await Match.find({ teams: id }).sort({ date: -1 }).limit(1);
+
+    res.status(200).json(match);
+}
+
+module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch };
