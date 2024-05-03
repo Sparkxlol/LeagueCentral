@@ -1,5 +1,6 @@
 const Team = require('../models/Team');
 const Match = require('../models/Match');
+const League = require('../models/League');
 const User = require('../models/User');
 const mongoose = require('mongoose');
 const utilities = require('./utilities');
@@ -79,4 +80,12 @@ const getLatestMatch = async (req, res) => {
     res.status(200).json(returnMatch);
 }
 
-module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch };
+// RETRIEVES the league from the team with the given id.
+const getLeagueFromTeam = async (req, res) => {
+    const { id } = req.params;
+    const league = await League.findOne({ teams: id }).populate('sport');
+
+    res.status(200).json(league);
+}
+
+module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch, getLeagueFromTeam };

@@ -24,11 +24,11 @@ const getMatch = async (req, res) => {
 
 // CREATE the match with the given request body parameters.
 const createMatch = async (req, res) => {
-    const { team1Score, team2Score, date, teams, league, tournament } = req.body;
+    const { team1Score, team2Score, date, teams, league } = req.body;
 
     try {
         const match = await Match.create({ 
-            team1Score, team2Score, date, teams, league, tournament
+            team1Score, team2Score, date, teams, league
         });
 
        res.status(200).json(match);

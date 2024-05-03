@@ -6,8 +6,10 @@ function League() {
     const { id } = useParams();
 
     return (
-        <div>
-            <Link to={`../league/create/${id}`}>Create</Link>
+        <div className='container'>
+            <div>
+                <Link to={`../league/create/${id}`}>Create</Link>
+            </div>
         </div>
     )
 }
