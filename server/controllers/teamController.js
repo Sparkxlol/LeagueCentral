@@ -22,6 +22,23 @@ const getTeam = async (req, res) => {
     res.status(200).json(team);
 }
 
+// RETRIEVE the team with the given id and the players
+const getTeamWithPlayers = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.isValidObjectId(id)) {
+        return utilities.returnError(res, 404, 'No such team exists');
+    }
+
+    const team = await Team.findById(id).populate('players');
+
+    if (!team) {
+        return utilities.returnError(res, 404, 'No such team exists');
+    }
+
+    res.status(200).json(team);
+}
+
 // CREATE the team with the given request body parameters.
 const createTeam = async (req, res) => {
     const { name, description, picture } = req.body;
@@ -88,4 +105,4 @@ const getLeagueFromTeam = async (req, res) => {
     res.status(200).json(league);
 }
 
-module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch, getLeagueFromTeam };
+module.exports = { getTeam, getTeamWithPlayers, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch, getLeagueFromTeam };

@@ -22,6 +22,23 @@ const getMatch = async (req, res) => {
     res.status(200).json(match);
 }
 
+// RETRIEVE the match with teams and players
+const getMatchComplete = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.isValidObjectId(id)) {
+        return utilities.returnError(res, 404, 'No such match exists');
+    }
+
+    const match = await Match.findById(id).populate({path: 'teams', populate: { path: 'players' }});
+
+    if (!match) {
+        return utilities.returnError(res, 404, 'No such match exists');
+    }
+
+    res.status(200).json(match);
+}
+
 // CREATE the match with the given request body parameters.
 const createMatch = async (req, res) => {
     const { team1Score, team2Score, date, teams, league } = req.body;
@@ -63,4 +80,4 @@ const getOrganizationFromMatch = async (req, res) => {
     res.status(200).json(organization);
 }
 
-module.exports = { getMatch, createMatch, getTeamsFromMatch, getOrganizationFromMatch };
+module.exports = { getMatch, getMatchComplete, createMatch, getTeamsFromMatch, getOrganizationFromMatch };

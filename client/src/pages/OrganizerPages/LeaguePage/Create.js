@@ -7,11 +7,35 @@ function Create() {
     let navigate = useNavigate();
 
     const [details, setDetails] = useState({
-        team1Score: '0',
-        team2Score: '0',
-        date: '',
-        league: id
+        sport: '',
+        startDate: '',
+        endDate: '',
+        organization: id
     });
+
+    const [sports, setSports] = useState('');
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const sportRes = await axios.get(`/api/sports/`);
+            setSports(sportRes.data.map(obj => { return { id: obj._id, name: obj.name } }));
+
+            setDetails({
+                ...details,
+                sport: sportRes.data[0]._id
+            })
+
+            setLoading(false);
+        }
+
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
 
     function handleChange(event) {
         setDetails((prev) => {
@@ -26,7 +50,7 @@ function Create() {
 
         const requestBody = details;
 
-        axios.post('/api/matches/', requestBody).then((res) => {
+        axios.post('/api/leagues/', requestBody).then((res) => {
             console.log(res.status, res.data);
         })
     }
@@ -37,22 +61,27 @@ function Create() {
                 <div className='text'>Create League:</div>
             </div>
             <div className='inputs'>
-                <div>
-                    <input placeholder="Team 1's Score" type='number' id='team1Score' name='team1Score'></input>
-                </div>
-                <div>
-                    <input placeholder="Team 2's Score" type='number' id='team2Score' name='team2Score'></input>
+                <div className='input'>
+                    <select name='sport' onChange={handleChange}>
+                        {sports.map((sport, index) => (
+                            <option key={index} value={sport.id}>{sport.name}</option>
+                        ))}
+                    </select>
                 </div>
                 <div className='input'>
-                    <label htmlFor="date">Start date:</label>
-                    <input type='date' id='date' name='date' onChange={handleChange}/>
+                    <label htmlFor="startdate">Start date:</label>
+                    <input type='date' id='startDate' name='startDate' onChange={handleChange}/>
+                </div>
+                <div className='input'>
+                    <label htmlFor="endDate">End date:</label>
+                    <input type='date' id='endDate' name='endDate' onChange={handleChange}/>
                 </div>
             </div>
             <div className='submit'>
                 <button className='submission' onClick={handleSubmit}>Create</button>
             </div>
             <div className='cancelContainer'>
-                <button className='cancel' onClick={() => { navigate(`../match/${id}`) }}>Cancel</button>
+                <button className='cancel' onClick={() => { navigate(`../league/${id}`) }}>Cancel</button>
             </div>
         </div>
     );
