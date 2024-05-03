@@ -4,14 +4,16 @@ import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import useSignIn from 'react-auth-kit/hooks/useSignIn'
 
 function Login() {
-
+  
   const[details, setDetails] = useState({
     email: '',
     password: ''
   })
   const nav = useNavigate()
+  // const signIn = useSignIn()
   
 
   function handleChange (event) {
@@ -26,12 +28,14 @@ function Login() {
 
   }
 
+  
   async function handleSubmit (event) {
     event.preventDefault()
     handleChange(event)
 
     const userInfo = details
     let user = null
+    
 
     console.log(userInfo)
 
@@ -39,18 +43,25 @@ function Login() {
       console.log('hi')
       console.log(res.data)
       user = (res.data)
-      console.log('res')
+      
+    //   signIn({
+    //     token: res.data.token,
+    //     expiresIn: 3600,
+    //     tokenType: 'Bearer',
+    //     authState: {id: user._id}
+    //   })
+    //   console.log('res')
     })
 
     console.log('user')
     console.log(user)
-
+    
     nav('/' + user.organization)
 
   }
-
   
-
+  
+  
   return (
     <div className = 'login'>
       <div className = 'header'>

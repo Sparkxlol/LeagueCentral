@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const utilities = require('./utilities');
 const auth = require('./authController');
 
+
 // RETRIEVE the user with the given id, or an error message.
 const getUser = async (req, res) => {
     const { id } = req.params;

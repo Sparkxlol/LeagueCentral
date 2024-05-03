@@ -11,6 +11,7 @@ function Profile() {
 
     const [user, setUser] = useState('');
     const [teams, setTeams] = useState('');
+    const [org, setOrg] = useState('')
 
     const [loading, setLoading] = useState('')
 
@@ -22,6 +23,9 @@ function Profile() {
             const teamsRes = await axios.get(`/api/users/teams/${id}`);
             setTeams(teamsRes.data);
 
+            const orgRes = await axios.get(`/api/organizations/${user.organization}`)
+            setOrg(orgRes.data)
+
             setLoading(false);
         }
 
@@ -32,13 +36,15 @@ function Profile() {
         return <div>Loading...</div>
     }
 
-
+    console.log(user)
     const activeTeams = []
     
     for(let i = 0; i < teams.length; i++) {
         const link = '/team/' + teams[i]._id
         activeTeams.push(<Link to={link}>{teams[i].name}</Link>)
     }
+
+    const orgLink = '/' + user.organization
 
     const profileTitle = user.firstName + ' ' + user.lastName + "'s Profile"
     return (
@@ -52,6 +58,7 @@ function Profile() {
             <div className='editInputs'><p className='userInfo'>Username: {user.userName}</p></div>
             <div className='editInputs'><p className='userInfo'>Password: {}</p></div>
             <div className='editInputs'><p className='userInfo'>Email: {user.email}</p></div>
+            <div className='editInputs'><p className='userInfo'>Organization: <Link to={orgLink}>{org.name}</Link></p></div>
             <div className='activeTeams'>
                 Active Teams
             </div>

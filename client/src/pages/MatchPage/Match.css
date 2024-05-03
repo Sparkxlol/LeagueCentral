@@ -64,6 +64,11 @@ img{
     font-size: large;
 }
 
+.team a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .solid1 {
     border: 2px solid #bbb;
     width: 750px;
@@ -106,6 +111,11 @@ img{
 
 .nameList img {
     padding-right: 5px;
+}
+
+.nameList a {
+    text-decoration: none;
+    color: black;
 }
 
 .vs {
