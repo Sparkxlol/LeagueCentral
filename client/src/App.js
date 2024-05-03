@@ -17,9 +17,7 @@ import Tournament from './pages/Tournament';
 import TournamentBracket from './pages/TournamentBracket';
 import TournamentSchedule from './pages/TournamentSchedule';
 import Navbar from './components/Navbar';
-import OrganizerLeague from './pages/OrganizerPages/LeaguePage/League';
-import OrganizerMatch from './pages/OrganizerPages/MatchPage/Match';
-import OrganizerOrganization from './pages/OrganizerPages/OrganizationPage/Organization';
+import OrganizerRoutes from './routes/OrganizerRoutes';
 
 
 
@@ -42,6 +40,8 @@ function App() {
       <Navbar />
       <div className='container'>
         <Routes>
+          <Route path="/organizer/*" element={<OrganizerRoutes />} />
+
           <Route path='/' element={<Login />} />
           <Route path='/league/:id' element={<League />} />
           <Route path='/login' element={<Login />} />
@@ -55,11 +55,8 @@ function App() {
           <Route path='/tournament/:id' element={<Tournament />} />
           <Route path='/tournamentBracket' element={<TournamentBracket />} />
           <Route path='/tournamentSchedule' element={<TournamentSchedule />} />
-          <Route path='/:id' element={<Home />} />
-
-          <Route path='/organizer/league/:id' element={<OrganizerLeague />} />
-          <Route path='/organizer/match/:id' element={<OrganizerMatch />} />
-          <Route path='/organizer/organization/:id' element={<OrganizerOrganization />} />
+          {/* Keep this last */}
+          <Route path='/:id' element={<Home />} /> 
         </Routes>
       </div>
     </Fragment>
