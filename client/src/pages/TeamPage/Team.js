@@ -37,20 +37,20 @@ function Team() {
     rows.push(<PlayerDisplay player={team.players[i]}/>)
   }
 
-  const opponent = lastMatch.teams[0]._id != id ? lastMatch.teams[0] : lastMatch.teams[1];
+  const opponent = lastMatch.teams[0]._id !== id ? lastMatch.teams[0] : lastMatch.teams[1];
   const dt = DateTime.fromISO(lastMatch.date);
   
   let didWin;
-  if((lastMatch.teams[0]._id == id) && (lastMatch.team1Score > lastMatch.team2Score)) {
+  if((lastMatch.teams[0]._id === id) && (lastMatch.team1Score > lastMatch.team2Score)) {
     didWin = true;
   }
-  else if((lastMatch.teams[0]._id == id) && (lastMatch.team1Score < lastMatch.team2Score)) {
+  else if((lastMatch.teams[0]._id === id) && (lastMatch.team1Score < lastMatch.team2Score)) {
     didWin = false;
   }
-  else if((lastMatch.teams[1]._id == id) && (lastMatch.team2Score > lastMatch.team1Score)) {
+  else if((lastMatch.teams[1]._id === id) && (lastMatch.team2Score > lastMatch.team1Score)) {
     didWin = true;
   }
-  else if((lastMatch.teams[1]._id == id) && (lastMatch.team2Score < lastMatch.team1Score)) {
+  else if((lastMatch.teams[1]._id === id) && (lastMatch.team2Score < lastMatch.team1Score)) {
     didWin = false;
   }
 
@@ -89,9 +89,9 @@ function Team() {
             {didWin ? <p className='w'>W</p> : <p className='l'>L</p>}
               <p className='theScore'>
                 <p>: </p>
-                <p>{lastMatch.teams[0]._id == id ? lastMatch.team1Score : lastMatch.team2Score}</p>
+                <p>{lastMatch.teams[0]._id === id ? lastMatch.team1Score : lastMatch.team2Score}</p>
                 <p>-</p>
-                <p>{lastMatch.teams[0]._id == id ? lastMatch.team2Score : lastMatch.team1Score}</p>
+                <p>{lastMatch.teams[0]._id === id ? lastMatch.team2Score : lastMatch.team1Score}</p>
             </p>
             </div> 
             <p className='vs'>VS</p>

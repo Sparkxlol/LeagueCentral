@@ -1,4 +1,4 @@
-.profileBackground {    
+ .profileBackground {    
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -9,21 +9,16 @@
     padding-bottom: 300px;
 }
 
-.profileBackground img {
-    padding: 30px;
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    font-size: 28px;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
 }
 
-.profileBackground .name {
-    padding: 30px;
-    font-size: 2rem;
-}
-
-.profileBackground .email {
-    padding-left: 30px;
-    font-size: 1.5rem;
-}
-
-.profileBackground .activeTeams {
+ .profileBackground .activeTeams {
     padding: 30px;
     padding-top: 70px;
     font-size: 3rem;
@@ -31,7 +26,7 @@
     color: rgb(211, 139, 6)
 }
 
-.profileBackground .teams {
+ .profileBackground .teams {
     
     text-align: center;
     margin: auto;
@@ -46,8 +41,22 @@
     font-size: 24px;
 }
 
-.profileBackground a {
+ .profileBackground a {
     text-decoration: none;
     color: black;
+}
+
+.editInputs {
+    display: flex;
+    margin: 10px;
+    width: auto;
+    height: 75px;
+    background: lightgray;
+    border-radius: 8px;
+}
+
+.userInfo {
+    margin: auto 10px;
+    font-size: 22px;
 }
 

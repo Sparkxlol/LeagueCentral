@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {  useParams } from 'react-router-dom';
 import user_icon from '../../Assets/person.png';
+import edit_icon from '../../Assets/edit.png'
 import './Profile.css'
 import { Link } from 'react-router-dom';
 
@@ -42,10 +43,15 @@ function Profile() {
     const profileTitle = user.firstName + ' ' + user.lastName + "'s Profile"
     return (
         <div className='profileBackground'>
-            <img src= {(user.profilePicture) ? user.profilePicture : user_icon} alt = ''/> 
-            
-            <div className='name'>{profileTitle}</div>
-            <div className='email'>Email: {user.email}</div>
+            <div className='profile-header'>    
+                <img src= {(user.profilePicture) ? user.profilePicture : user_icon} alt = ''/> 
+                {profileTitle}
+            </div>
+            <div className='editInputs'><p className='userInfo'>Email: {user.email}</p></div>
+            <div className='editInputs'><p className='userInfo'>Phone: {user.phone}</p></div>
+            <div className='editInputs'><p className='userInfo'>Username: {user.userName}</p></div>
+            <div className='editInputs'><p className='userInfo'>Password: {}</p></div>
+            <div className='editInputs'><p className='userInfo'>Email: {user.email}</p></div>
             <div className='activeTeams'>
                 Active Teams
             </div>
