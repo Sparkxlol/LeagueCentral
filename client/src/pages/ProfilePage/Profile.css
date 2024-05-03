@@ -1,0 +1,53 @@
+.profileBackground {    
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: fit-content;
+    margin: auto;
+    padding: 0px 20px;
+    padding-bottom: 300px;
+}
+
+.profileBackground img {
+    padding: 30px;
+}
+
+.profileBackground .name {
+    padding: 30px;
+    font-size: 2rem;
+}
+
+.profileBackground .email {
+    padding-left: 30px;
+    font-size: 1.5rem;
+}
+
+.profileBackground .activeTeams {
+    padding: 30px;
+    padding-top: 70px;
+    font-size: 3rem;
+    text-align: center;
+    color: rgb(211, 139, 6)
+}
+
+.profileBackground .teams {
+    
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 400px;
+    height: fit-content;
+    background: lightgray;
+    border-radius: 8px;
+    font-size: 24px;
+}
+
+.profileBackground a {
+    text-decoration: none;
+    color: black;
+}
+

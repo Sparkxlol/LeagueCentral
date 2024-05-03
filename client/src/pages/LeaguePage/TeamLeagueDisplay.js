@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import './League.css'
 
 function TeamLeagueDisplay(props) {
 
@@ -10,7 +11,7 @@ function TeamLeagueDisplay(props) {
   const [competingTeams, setcompetingTeams] = useState('')
     useEffect(() => {
       const fetchData = async () => {
-        const res = await axios.get(`/api/teams/${props.team}`)
+        const res = await axios.get(`/api/teams/${props.team._id}`)
           setcompetingTeams(res.data)
         setLoading(false)
       }
@@ -25,11 +26,7 @@ function TeamLeagueDisplay(props) {
     
   const link = '/team/' + competingTeams._id
   return (
-    <div className='teamsInLeague'>
         <Link to={link} >{competingTeams.name}</Link>
-        <div className='teamDescription'>: {competingTeams.description}</div>
-        
-    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAsyncError, useLocation, useParams } from 'react-router-dom'
-import TeamLeagueDisplay from '../../components/TeamLeagueDisplay'
+import TeamLeagueDisplay from './TeamLeagueDisplay'
 import './League.css'
 import MatchList from '../../components/MatchList'
 import axios from 'axios'
@@ -39,17 +39,15 @@ function League() {
     
   
   const rows = []
-  
+  console.log('tems array')
+  console.log(league.teams)
   for(let i = 0; i < league.teams.length; i++) {
     rows.push(<TeamLeagueDisplay team={league.teams[i]}/>)
   }
   
-    console.log('matchrowhere')
-    console.log(matchRows.length)
-    console.log(matchRows)
+    
     const matchList = []
     for(let i = 0; i < matchRows.length; i++) {
-      console.log("im hereeee")
       console.log(matchRows[i])
       matchList.push(<MatchList match={matchRows[i]} />)
     }
@@ -67,11 +65,16 @@ function League() {
         
 
         <p className='rost'>Competing Teams:</p>
+        <div className='leagueLists'>
+          {rows}
+        </div>
         
-        {rows}
 
         <p className='rost'>Upcoming Matches:</p>
-        {matchList}
+        <div className='leagueLists'>
+          {matchList}
+        </div>
+        
       </div>
     
   )
