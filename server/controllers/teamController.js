@@ -72,7 +72,7 @@ const getPlayersFromTeam = async (req, res) => {
 // RETRIEVES the latest match from the given team
 const getLatestMatch = async (req, res) => {
     const { id } = req.params;
-    const match = await Match.find({ teams: id }).sort({ date: -1 }).limit(1);
+    const match = await Match.find({ teams: id }).sort({ date: -1 }).limit(1).populate('teams');
 
     const returnMatch = (match == null) ? null : match[0];
 
