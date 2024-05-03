@@ -74,7 +74,9 @@ const getLatestMatch = async (req, res) => {
     const { id } = req.params;
     const match = await Match.find({ teams: id }).sort({ date: -1 }).limit(1);
 
-    res.status(200).json(match);
+    const returnMatch = (match == null) ? null : match[0];
+
+    res.status(200).json(returnMatch);
 }
 
 module.exports = { getTeam, createTeam, addPlayerToTeam, getPlayersFromTeam, getLatestMatch };
