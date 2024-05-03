@@ -5,6 +5,7 @@ import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
 import user_icon from '../../Assets/person.png'
 import axios from 'axios'
+import OrgList from './OrgList'
 
 function Registration() {
 
@@ -16,7 +17,8 @@ function Registration() {
     password: '',
     dateOfBirth: '',
     gender: 'male',
-    phone: ''
+    phone: '',
+    organization: ''
   })
   
 
@@ -28,6 +30,7 @@ function Registration() {
     setDetails((prev) => {
       return {...prev, [name]: val}
     })
+    console.log(details)
     
   }
 
@@ -36,15 +39,19 @@ function Registration() {
 
     const userInfo = details
 
+    console.log('userinfo')
     console.log(userInfo)
 
     axios.post('/api/users/', userInfo).then(res => {
       console.log(res)
+      console.log('submit')
       console.log(res.data)
     })
 
   }
 
+  //get array of <option>
+  
 
   return (
     <div className = 'login'>
@@ -75,15 +82,19 @@ function Registration() {
           <input placeholder='Password   *' type='password' id='pass' name='password' onChange={handleChange} /> 
         </div>
         <div className='input'>
+          <select id='organization' name='organization' onClick={handleChange}>
+            <OrgList fun = {handleChange}/>
+          </select>
+        </div>
+        <div className='input'>
           <label htmlFor="birthday">Birthday:</label>
           <input type='date' id='bday' name='dateOfBirth' onChange={handleChange} />
           <p>*</p>
         </div>
         <div className='input'>
           <select id='gender' name='gender' onChange={handleChange}> 
-            <option value = 'male'>male</option>
-            <option value = 'female'>female</option>
-            <option value = 'other'>other</option>
+            <option value = 'male' id='gender' name='gender' onChange={handleChange}>male</option>
+            <option value = 'female' id='gender' name='gender' onChange={handleChange}>female</option>
           </select>
           <p>*</p>
         </div>

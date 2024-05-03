@@ -15,7 +15,7 @@ const Home = (props) => {
 
     useEffect(() => {
       const fetchData = async () => {
-        const orgRes = await(axios.get(`/api/organizations/${id}`))
+        const orgRes = await axios.get(`/api/organizations/${id}`)
         setOrg(orgRes.data);
 
         const sportsRes = await axios.get('/api/leagues/active');

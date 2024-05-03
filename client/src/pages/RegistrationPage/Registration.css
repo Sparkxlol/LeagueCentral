@@ -143,6 +143,7 @@ select {
     background-color:#eaeaea ;
     cursor: pointer;
     margin-left: 20px;
+    width: fit-content;
 }
 
 p {
