@@ -58,7 +58,6 @@ function App() {
           <Route path='/:id' element={<Home />} />
 
           <Route path='/organizer/league/:id' element={<OrganizerLeague />} />
-          <Route path='/organizer/league/create/:id' element={<OrganizerLeagueCreate />} />
           <Route path='/organizer/match/:id' element={<OrganizerMatch />} />
           <Route path='/organizer/organization/:id' element={<OrganizerOrganization />} />
         </Routes>
