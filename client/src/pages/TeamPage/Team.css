@@ -7,6 +7,7 @@
     padding: 10px;
     gap: 15px;
     color: rgb(32, 135, 198);
+    height: 10%;
 }
 
 .team1 img {
@@ -99,10 +100,11 @@
 
 .last-match {
     position: absolute;
-    bottom: 25px;
+    bottom: 0px;
     left: 20px;
     right: 20px;
     padding-top: 10px;
+    max-height: 20%;
 }
 
 .last-match-header {
@@ -120,7 +122,6 @@
     padding: 0px 40px 0px 40px;
     margin-left: 20px;
     margin-right: 20px;
-    
 }
 
 .last-match-container > div {
@@ -197,7 +198,12 @@
     background-color: grey;
     border-radius: 20px;
     margin-left: 15px; 
-    height: fit-content
+    max-height: 45%;
+    width: 600px;
+    overflow-y: scroll;
+    scrollbar-color: black lightgrey;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
 }
 
 .sport-info {
