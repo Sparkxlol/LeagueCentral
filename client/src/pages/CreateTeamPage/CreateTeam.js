@@ -16,6 +16,7 @@ function CreateTeam() {
         players: []
     })
     const nav = useNavigate()
+    const [newTeam, setnewTeam] = useState('')
 
     function handleChange (event) {
     
@@ -37,13 +38,21 @@ function CreateTeam() {
     
         console.log('userinfo')
         console.log(userInfo)
+
+        let newId = null
     
         await axios.post('/api/teams/', userInfo).then(res => {
           console.log(res.data)
+          newId = res.data._id
         })
 
         //add team to league
-    
+        const requestBody = {teamID: newId}
+        console.log(requestBody)
+
+        await axios.patch(`/api/leagues/teams/${id}`, requestBody).then(res2 => {
+          console.log(res2.data)
+        })
         nav('/League/' + id)
     
     }
