@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Registration.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
 import user_icon from '../../Assets/person.png'
@@ -20,7 +20,7 @@ function Registration() {
     phone: '',
     organization: ''
   })
-  
+  const nav = useNavigate()
 
   function handleChange (event) {
     
@@ -47,6 +47,8 @@ function Registration() {
       console.log('submit')
       console.log(res.data)
     })
+
+    nav('/Login')
 
   }
 

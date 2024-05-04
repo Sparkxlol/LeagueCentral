@@ -7,10 +7,10 @@ import axios from 'axios'
 function MatchList(props) {
 
     const matchID = props.match._id
-    
-
     const [teamsInMatch, setteamsInMatch] = useState('')
     const [loading, setLoading] = useState(true);
+
+
     useEffect(() => {
       const fetchData = async () => {
         const res = await axios.get(`/api/matches/teams/${matchID}`)
@@ -25,7 +25,7 @@ function MatchList(props) {
     }
     
 
-    const link = '/Match/' + matchID
+  const link = '/Match/' + matchID
   return (
     <div className='matchList'>
       <Link to={link}>{teamsInMatch[0].name} vs {teamsInMatch[1].name}</Link>
