@@ -88,8 +88,8 @@ const loginUser = async (req, res) => {
     // Verifies the user exists and the entered email/pass combination is valid.
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
-            auth.addCookieToResponse(res, user._id);
-            return res.status(200).json(user);
+            const token = auth.createToken(user._id);
+            return res.status(200).json({ token });
         }
     }
 
