@@ -18,6 +18,7 @@ import TournamentBracket from './pages/TournamentBracket';
 import TournamentSchedule from './pages/TournamentSchedule';
 import Navbar from './components/Navbar';
 import OrganizerRoutes from './routes/OrganizerRoutes';
+import LeagueList from './pages/LeagueList/LeagueList';
 
 
 
@@ -41,7 +42,7 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path="/organizer/*" element={<OrganizerRoutes />} />
-
+          <Route path='/LeagueList' element={<LeagueList />} />
           <Route path='/' element={<Login />} />
           <Route path='/league/:id' element={<League />} />
           <Route path='/login' element={<Login />} />

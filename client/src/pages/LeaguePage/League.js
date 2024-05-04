@@ -41,6 +41,7 @@ function League() {
   const rows = []
   console.log('tems array')
   console.log(league.teams)
+  console.log(league)
   for(let i = 0; i < league.teams.length; i++) {
     rows.push(<TeamLeagueDisplay team={league.teams[i]}/>)
   }
