@@ -57,6 +57,7 @@
     padding-left: 10px;
     gap: 10px;
     max-width: 600px;
+
 }
 
 .container4 .roster img {
@@ -101,6 +102,7 @@
     bottom: 25px;
     left: 20px;
     right: 20px;
+    padding-top: 10px;
 }
 
 .last-match-header {
@@ -118,6 +120,7 @@
     padding: 0px 40px 0px 40px;
     margin-left: 20px;
     margin-right: 20px;
+    
 }
 
 .last-match-container > div {
@@ -161,7 +164,7 @@
     margin-top: -25px;
     margin-bottom: -40px;
     font-size: 28px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .theScore {
@@ -194,7 +197,7 @@
     background-color: grey;
     border-radius: 20px;
     margin-left: 15px; 
-    height: 500px;
+    height: fit-content
 }
 
 .sport-info {
