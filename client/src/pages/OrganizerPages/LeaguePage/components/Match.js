@@ -10,6 +10,7 @@ function Match(props) {
     const teams = props.teams;
 
     const dt = DateTime.fromISO(match.date);
+    const matchLink = "../match/edit/" + match._id;
 
     return (
         <div className='section'>
@@ -24,12 +25,15 @@ function Match(props) {
                         ))}
                     </div>
                 </div>
-                <div className='column'>
+                <div className='column flex-1'>
                     <div>
                         {match.team1Score} - {match.team2Score}
                     </div>
                     <div class='small-text-row'>
                         {dt.toLocaleString(DateTime.DATETIME_SHORT)}
+                    </div>
+                    <div class='small-text-row'>
+                        <Link to={matchLink}>Edit</Link>
                     </div>
                 </div>
                 <div className='column flex-1'>

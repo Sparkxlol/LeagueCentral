@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { DateTime } from 'luxon';
 
-function Create() {
+function Edit() {
     const { id } = useParams();
     let navigate = useNavigate();
 
     const [teams, setTeams] = useState([]);
+    const [league, setLeague] = useState('');
 
     const [details, setDetails] = useState({
         team1: '',
@@ -14,28 +16,31 @@ function Create() {
         team1Score: '0',
         team2Score: '0',
         date: '',
-        league: id
+        league: ''
     });
 
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            const teamsRes = await axios.get(`/api/leagues/teams/${id}`);
+            const matchRes = await axios.get(`/api/matches/${id}`);
+            const match = matchRes.data;
+
+            const teamsRes = await axios.get(`/api/leagues/teams/${match.league}`);
             setTeams(teamsRes.data);
             
-            if (teamsRes.data.length < 2) {
-                navigate(`../league/${id}`);
-            }
-            else {
-                setDetails({
-                    ...details,
-                    team1: teamsRes.data[0]._id,
-                    team2: teamsRes.data[0]._id
-                })
+            setDetails({
+                team1: match.teams[0],
+                team2: match.teams[1],
+                team1Score: match.team1Score,
+                team2Score: match.team2Score,
+                date: match.date,
+                league: match.league
+            });
 
-                setLoading(false);
-            }
+            setLeague(match.league);
+
+            setLoading(false);
         }
 
         fetchData();
@@ -62,52 +67,54 @@ function Create() {
         delete requestBody.team1;
         delete requestBody.team2;
 
-        await axios.post('/api/matches/', requestBody).then((res) => {
+        await axios.patch(`/api/matches/${id}`, requestBody).then((res) => {
             console.log(res.status, res.data);
         })
 
-        navigate(`../league/${id}`);
+        navigate(`../league/${league}`);
     }
+
+    const dt = DateTime.fromISO(details.date);
     
     return (
         <div className='login'>
             <div className='header'>
-                <div className='text'>Create Match:</div>
+                <div className='text'>Edit Match:</div>
             </div>
             <div className='inputs'>
                 <div className='input'>
                     <select name='team1' onChange={handleChange}>
                         {teams.map((team1, index) => (
-                            <option key={index} value={team1._id}>{team1.name}</option>
+                            <option key={index} value={team1._id} selected={team1._id === details.team1}>{team1.name}</option>
                         ))}
                     </select>
                 </div>
                 <div className='input'>
                     <select name='team2' onChange={handleChange}>
                         {teams.map((team2, index) => (
-                            <option key={index} value={team2._id}>{team2.name}</option>
+                            <option key={index} value={team2._id} selected={team2._id === details.team2}>{team2.name}</option>
                         ))}
                     </select>
                 </div>
                 <div className='input'>
-                    <input placeholder="Team 1's Score" type='number' id='team1Score' name='team1Score' onChange={handleChange}></input>
+                    <input placeholder={details.team1Score} type='number' id='team1Score' name='team1Score' onChange={handleChange}></input>
                 </div>
                 <div className='input'>
-                    <input placeholder="Team 2's Score" type='number' id='team2Score' name='team2Score' onChange={handleChange}></input>
+                    <input placeholder={details.team2Score} type='number' id='team2Score' name='team2Score' onChange={handleChange}></input>
                 </div>
                 <div className='input'>
                     <label htmlFor="date">Start date:</label>
-                    <input type='date' id='date' name='date' onChange={handleChange}/>
+                    <input type='date' value={dt.toFormat("yyyy-MM-dd")} id='date' name='date' onChange={handleChange}/>
                 </div>
             </div>
             <div className='submit'>
-                <button className='submission' onClick={handleSubmit}>Create</button>
+                <button className='submission' onClick={handleSubmit}>Edit</button>
             </div>
             <div className='cancelContainer'>
-                <button className='cancel' onClick={() => { navigate(`../league/${id}`) }}>Cancel</button>
+                <button className='cancel' onClick={() => { navigate(`../league/${league}`) }}>Cancel</button>
             </div>
         </div>
     );
 }
 
-export default Create;
+export default Edit;

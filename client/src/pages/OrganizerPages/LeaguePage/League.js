@@ -41,6 +41,7 @@ function League() {
     const endDate = DateTime.fromISO(league.endDate);
 
     const createLink = "../match/create/" + id;
+    const returnLink = "../" + league.organization;
 
     return (
         <div className='homepage'>
@@ -57,6 +58,9 @@ function League() {
             </div>
             <div className='sections'>
                 {currentMatches}
+            </div>
+            <div className='row subheader'>
+                <div><Link to={returnLink}>Return</Link></div>
             </div>
         </div>
     )

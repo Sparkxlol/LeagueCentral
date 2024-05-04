@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import League from '../pages/OrganizerPages/LeaguePage/League';
 import CreateLeague from '../pages/OrganizerPages/LeaguePage/Create';
 import CreateMatch from '../pages/OrganizerPages/MatchPage/Create';
-import Match from '../pages/OrganizerPages/MatchPage/Match';
+import EditMatch from '../pages/OrganizerPages/MatchPage/Edit';
 import Organization from '../pages/OrganizerPages/OrganizationPage/Organization';
 
 const OrganizerRoutes = () => {
@@ -12,8 +12,8 @@ const OrganizerRoutes = () => {
             <Route path='/league/create/:id' element={<CreateLeague />} />
             <Route path='/league/:id' element={<League />} />
             <Route path='/match/create/:id' element={<CreateMatch />} />
-            <Route path='/match/:id' element={<Match />} />
-            <Route path='/organization/:id' element={<Organization />} />
+            <Route path='/match/edit/:id' element={<EditMatch />} />
+            <Route path='/:id' element={<Organization />} />
         </Routes>
     )
 }

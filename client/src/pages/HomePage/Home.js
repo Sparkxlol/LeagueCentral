@@ -51,7 +51,7 @@ const Home = (props) => {
               <ActiveSport sports={sports}/>
             </div>
           </div>
-          <div className="homepage footer">
+          <div className="homepage">
             <div className="subheader">Contact</div>
             <div className="row">
               <div>{org.email}</div>

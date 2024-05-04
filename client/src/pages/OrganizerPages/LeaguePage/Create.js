@@ -53,6 +53,8 @@ function Create() {
         axios.post('/api/leagues/', requestBody).then((res) => {
             console.log(res.status, res.data);
         })
+
+        navigate(`../${id}`);
     }
     
     return (
@@ -81,7 +83,7 @@ function Create() {
                 <button className='submission' onClick={handleSubmit}>Create</button>
             </div>
             <div className='cancelContainer'>
-                <button className='cancel' onClick={() => { navigate(`../league/${id}`) }}>Cancel</button>
+                <button className='cancel' onClick={() => { navigate(`../${id}`) }}>Cancel</button>
             </div>
         </div>
     );
