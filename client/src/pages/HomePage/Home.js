@@ -18,7 +18,7 @@ const Home = (props) => {
         const orgRes = await axios.get(`/api/organizations/${id}`)
         setOrg(orgRes.data);
 
-        const sportsRes = await axios.get('/api/leagues/active');
+        const sportsRes = await axios.get(`/api/leagues/active/${id}`);
         setSports(sportsRes.data);
 
         setLoading(false);

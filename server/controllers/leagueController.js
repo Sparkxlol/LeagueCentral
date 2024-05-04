@@ -9,8 +9,11 @@ const getActiveLeagues = async (req, res) => {
     const currentDate = new Date();
     const responseBody = [];
 
+    const { id } = req.params;
+
     const leagues = await League
         .find({ 
+            organization: id,
             startDate: { $lte: currentDate },
             endDate: { $gte: currentDate },
         })
@@ -93,4 +96,22 @@ const getLeaguesByOrganization = async (req, res) => {
     res.status(200).json(leagues);
 }
 
-module.exports = { getActiveLeagues, getLeague, createLeague, getMatchesFromLeague, getMatchesFromLeagueComplete, getTeamsFromLeague, getLeaguesByOrganization };
+// UPDATES the league to add a team with the given id. Returns previous information about team.
+// POST REQUEST MUST HAVE the teamID as a body attribute
+const addTeamToLeague = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.isValidObjectId(id)) {
+        return utilities.returnError(res, 404, 'No such league exists');
+    }
+
+    const league = await League.findOneAndUpdate({ _id: id}, { $push: { teams: req.body.teamID }}, { returnOriginal: false, runValidators: true} );
+
+    if (!league) {
+        return utilities.returnError(res, 404, 'No such league exists');
+    }
+
+    res.status(200).json(league);
+}
+
+module.exports = { getActiveLeagues, getLeague, createLeague, getMatchesFromLeague, getMatchesFromLeagueComplete, getTeamsFromLeague, getLeaguesByOrganization, addTeamToLeague };
