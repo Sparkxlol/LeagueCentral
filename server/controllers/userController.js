@@ -107,9 +107,17 @@ const getTeamsFromUser = async (req, res) => {
     const { id } = req.params;
 
     const teams = await Team.find({ players: id })
-    console.log(teams[0]);
     
     res.status(200).json(teams);
 }
 
-module.exports = { getUser, createUser, deleteUser, updateUser, registerUser, loginUser, logoutUser, getTeamsFromUser };
+// RETRIEVE users with the given organization.
+const getUsersFromOrganization = async (req, res) => {
+    const { id } = req.params;
+
+    const users = await User.find({ organization: id});
+
+    res.status(200).json(users);
+}
+
+module.exports = { getUser, createUser, deleteUser, updateUser, registerUser, loginUser, logoutUser, getTeamsFromUser, getUsersFromOrganization };

@@ -2,17 +2,22 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Match from './components/Match';
+const {DateTime} = require('luxon')
 
 function League() {
     const { id } = useParams();
 
+    const [league, setLeague] = useState('');
     const [matches, setMatches] = useState('');
     const [index, setIndex] = useState(0);
 
-    const [loading, setLoading] = useState('');
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
+            const leagueRes = await axios.get(`/api/leagues/${id}`);
+            setLeague(leagueRes.data);
+
             const matchRes = await axios.get(`/api/leagues/matches/complete/${id}`);
             setMatches(matchRes.data);
 
@@ -26,18 +31,29 @@ function League() {
         return <div>Loading...</div>
     }
 
-    console.log(matches);
-
     let currentMatches = [];
     for (let i = index; i < index + 10; i++) {
         if (matches.length > i)
             currentMatches.push(<Match match={matches[i]} teams={matches[i].teams}/>);
     }
 
+    const startDate = DateTime.fromISO(league.startDate);
+    const endDate = DateTime.fromISO(league.endDate);
+
+    const createLink = "../match/create/" + id;
+
     return (
         <div className='homepage'>
-            <div className='subheader'>
-                <Link to={`../league/create/${id}`}>Create</Link>
+            <div className='header'>
+                <div>
+                    {league.sport.name}
+                </div>
+            </div>
+            <div class='subheader'>
+                {startDate.toLocaleString(DateTime.DATETIME_SHORT)} - {endDate.toLocaleString(DateTime.DATETIME_SHORT)}
+            </div>
+            <div className='row subheader'>
+                <div><Link to={createLink}>Create</Link></div>
             </div>
             <div className='sections'>
                 {currentMatches}

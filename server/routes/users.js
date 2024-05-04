@@ -13,5 +13,6 @@ router.delete('/:id', userController.deleteUser); // Delete single user by id
 router.patch('/:id', userController.updateUser); // Update single user by id
 
 router.get('/teams/:id', userController.getTeamsFromUser); // Get teams from the user id.
+router.get('/organization/:id', userController.getUsersFromOrganization); // Get users from the organization id.
 
 module.exports = router;
