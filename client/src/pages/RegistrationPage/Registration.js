@@ -22,6 +22,7 @@ function Registration() {
   })
   const nav = useNavigate()
 
+  
   function handleChange (event) {
     
     const name = event.target.name
@@ -102,6 +103,9 @@ function Registration() {
         </div>
         <div className='input'>
           <input placeholder='Phone' type='text' id='phone' name='phone' onChange={handleChange} />
+        </div>
+        <div className='input'>
+          <input type='file' accept='image/*' />
         </div>
       </div>
       <div className ='forgot-password'>Already have an account?<Link to = '/Login'>Login here.</Link></div>
