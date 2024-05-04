@@ -6,6 +6,7 @@ import password_icon from '../../Assets/password.png'
 import user_icon from '../../Assets/person.png'
 import axios from 'axios'
 import OrgList from './OrgList'
+import { Resizer } from 'react-image-file-resizer';
 
 function Registration() {
 
@@ -18,11 +19,37 @@ function Registration() {
     dateOfBirth: '',
     gender: 'male',
     phone: '',
-    organization: ''
+    organization: '',
+    profilePicture: ''
   })
+
+
   const nav = useNavigate()
 
+    const handleFileUpload = (event) => {
+      const file = event.target.files[0];
+      
+      // Check if a file is selected
+      if (!file) return;
   
+      Resizer.imageFileResizer(
+        file, // The image file
+        100,  // New width (in pixels)
+        100,  // New height (in pixels)
+        'JPEG', // Output format
+        100,   // Image quality (0-100)
+        0,     // Rotation
+        (uri) => {
+          // Callback function
+          console.log(uri);
+          setDetails((prev) => {
+            return {...prev, [event.target.name]: uri}
+          })
+        },
+        'base64' // Output type
+      );
+    }
+
   function handleChange (event) {
     
     const name = event.target.name
@@ -31,8 +58,6 @@ function Registration() {
     setDetails((prev) => {
       return {...prev, [name]: val}
     })
-    console.log(details)
-    
   }
 
   function handleSubmit (event) {
@@ -40,13 +65,7 @@ function Registration() {
 
     const userInfo = details
 
-    console.log('userinfo')
-    console.log(userInfo)
-
     axios.post('/api/users/', userInfo).then(res => {
-      console.log(res)
-      console.log('submit')
-      console.log(res.data)
     })
 
     nav('/Login')
@@ -105,7 +124,7 @@ function Registration() {
           <input placeholder='Phone' type='text' id='phone' name='phone' onChange={handleChange} />
         </div>
         <div className='input'>
-          <input type='file' accept='image/*' />
+          <input type='file'  name='profilePicture' id='profilePicture' onChange={handleFileUpload}/>
         </div>
       </div>
       <div className ='forgot-password'>Already have an account?<Link to = '/Login'>Login here.</Link></div>

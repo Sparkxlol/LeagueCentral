@@ -11,7 +11,6 @@ function OrgList(props) {
         const fetchData = async () => {
           const res = await axios.get(`/api/organizations/`)
             setOrgs(res.data)
-            console.log(res.data)
           setLoading(false)
         }
         fetchData()
