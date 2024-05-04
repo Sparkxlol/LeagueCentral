@@ -9,10 +9,23 @@
     padding-bottom: 100px;
 }
 
-.match-info p {
+.sport-title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 48px;
+    color: rgb(211, 139, 6);
+    margin-bottom: 0px;
+}
+
+.solid2 {
+    border: 2px solid rgb(211, 139, 6);
+    width: 750px;
+    
+}
+
+.league-sport-info p {
     font-size: 18px;
     font-weight: 500;
-    padding-top: 0px;
     text-align: center;
 }
 
@@ -31,12 +44,13 @@
 
 .leagueLists {
     text-align: center;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 10px;
     margin-bottom: 5px;
     padding-top: 20px;
     padding-bottom: 20px;
-    width: 400px;
+    width: 800px;
     height: fit-content;
     background: lightgray;
     border-radius: 8px;
@@ -47,4 +61,3 @@
     text-decoration: none;
     color: black;
 }
-

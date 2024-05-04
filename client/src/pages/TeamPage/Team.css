@@ -199,14 +199,16 @@
 
 .sport-info {
     padding-left: 15px;
-    color: white;
+    color: black;
     font-size: 22px;
+    font-weight: 500;
 }
 
 .sport-info-description {
     font-size: 18px;
-    color: black;
+    color: white;
     padding-left: 15px;
     margin-top: -20px;
     font-weight: 500;
+    font-style: italic;
 }

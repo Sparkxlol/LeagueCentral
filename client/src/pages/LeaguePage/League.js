@@ -56,13 +56,14 @@ function League() {
       
       <div className='container1'>
         
-        <p className='vs'>{sport.name}</p>
-        <div className='match-info'>
+        <p className='sport-title'>{sport.name}</p>
+        <hr className='solid2'/>
+        <div className='league-sport-info'>
           <p>{sport.description}</p>
           <p>Max Players: {sport.maxPlayers}</p>
           <p>Maximum team members: {sport.maxRoster}</p>
         </div>
-        
+        <hr className='solid2'/>
 
         <p className='rost'>Competing Teams:</p>
         <div className='leagueLists'>
