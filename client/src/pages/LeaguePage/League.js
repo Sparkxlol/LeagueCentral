@@ -13,7 +13,6 @@ function League() {
   
   //const location = useLocation()
   const {id} = useParams()
-  console.log(id)
   const [league, setLeague] = useState('')
   const [sport, setSport] = useState('')
   const [matchRows, setmatchRows] = useState('')
@@ -39,8 +38,6 @@ function League() {
     
   
   const rows = []
-  console.log('tems array')
-  console.log(league.teams)
   for(let i = 0; i < league.teams.length; i++) {
     rows.push(<TeamLeagueDisplay team={league.teams[i]}/>)
   }
@@ -48,7 +45,6 @@ function League() {
     
     const matchList = []
     for(let i = 0; i < matchRows.length; i++) {
-      console.log(matchRows[i])
       matchList.push(<MatchList match={matchRows[i]} />)
     }
     
@@ -56,13 +52,14 @@ function League() {
       
       <div className='container1'>
         
-        <p className='vs'>{sport.name}</p>
-        <div className='match-info'>
+        <p className='sport-title'>{sport.name}</p>
+        <hr className='solid2'/>
+        <div className='league-sport-info'>
           <p>{sport.description}</p>
           <p>Max Players: {sport.maxPlayers}</p>
           <p>Maximum team members: {sport.maxRoster}</p>
         </div>
-        
+        <hr className='solid2'/>
 
         <p className='rost'>Competing Teams:</p>
         <div className='leagueLists'>
