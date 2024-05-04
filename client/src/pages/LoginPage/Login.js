@@ -46,14 +46,9 @@ function Login() {
       console.log(res.data)
       user = (res.data)
       
-    //   signIn({
-    //     token: res.data.token,
-    //     expiresIn: 3600,
-    //     tokenType: 'Bearer',
-    //     authState: {id: user._id}
-    //   })
-    //   console.log('res')
     })
+
+    
 
     console.log('user')
     console.log(user)

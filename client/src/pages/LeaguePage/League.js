@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAsyncError, useLocation, useParams } from 'react-router-dom'
+import { Link, useAsyncError, useLocation, useParams } from 'react-router-dom'
 import TeamLeagueDisplay from './TeamLeagueDisplay'
 import './League.css'
 import MatchList from '../../components/MatchList'
@@ -47,6 +47,8 @@ function League() {
     for(let i = 0; i < matchRows.length; i++) {
       matchList.push(<MatchList match={matchRows[i]} />)
     }
+
+    const createTeamLink = '/CreateTeam/' + league._id
     
   return (
       
@@ -62,6 +64,7 @@ function League() {
         <hr className='solid2'/>
 
         <p className='rost'>Competing Teams:</p>
+        <Link to={createTeamLink}>Create Team</Link>
         <div className='leagueLists'>
           {rows}
         </div>

@@ -17,10 +17,13 @@ function JoinTeam() {
         const fetchData = async () => {
           const res = await axios.get(`/api/teams/players/${id}`)
             setPlayers(res.data);
+            console.log('kys')
           const res3 = await axios.get(`/api/teams/league/${id}`)
             setLeague(res3.data);
-            console.log(league.organization)
-          const res2 = await axios.get(`/api/users/organization/${league.organization}`)
+            console.log('die')
+            console.log(res3.data)
+            
+          const res2 = await axios.get(`/api/users/organization/${res3.data.organization}`)
             setUsers(res2.data)
           setLoading(false)
         }
