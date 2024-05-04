@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import './CreateTeam.css'
 
 
 
@@ -61,6 +62,7 @@ function CreateTeam() {
 
   return (
     <>
+    <div className='createTitle'>Create Team</div>
     <div className = 'inputs'>
         <div className='input'>
           <input placeholder='Team name   *' type='text' id='name' name='name' onChange={handleChange}/>
@@ -70,8 +72,8 @@ function CreateTeam() {
         </div>
         
     </div>
-    <div className ='submit'>
-        <button className = 'submission' onClick={handleSubmit}>Create Account</button>
+    <div className ='submitNewTeam'>
+        <button className = 'submission' onClick={handleSubmit}>Create Team</button>
     </div>
     </>
   )

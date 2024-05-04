@@ -74,7 +74,10 @@ function Team() {
           <div className='container2'>
             <div className='desc'>{team.description}</div>
           </div>
-          <p className='team-sport-header'>Sport:</p>
+          
+        </div>
+        <div className='column'>
+        <p className='team-sport-header'>Sport:</p>
           <div className='team-sport-container'>
             <div className='the-sport'>
               <p className='sport-info'>Sport: {league.sport.name}</p>
@@ -84,7 +87,7 @@ function Team() {
               <p className='sport-info-description'>{league.sport.description}</p>
             </div>
           </div>
-        </div>
+          </div>
       </div>
       <LastMatch lMatch={lastMatch} pid={id} pTeam={team}/>
     </>

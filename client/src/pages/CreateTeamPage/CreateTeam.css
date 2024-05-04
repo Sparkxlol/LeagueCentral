@@ -1,0 +1,18 @@
+.submitNewTeam {
+    text-align: center;
+    padding: 20px;
+}
+
+.submitNewTeam button {
+    margin: auto;
+    background-color: rgb(245, 174, 80);
+}
+
+.createTitle {
+    font-weight: 800;
+    font-size: 5rem;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    color: rgb(211, 139, 6);
+    text-align: center;
+}
