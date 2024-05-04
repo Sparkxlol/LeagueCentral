@@ -4,18 +4,13 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 function Navbar() {
   return (
     <nav className='nav'>
-      <Link to='/' className='Home'>
-        League Central
+      <Link to='/Login' className='Home'>
+        Login
       </Link>
-      <ul>
-        <li className='active'>
-          <CustomLink to='/Profile'>Profile</CustomLink>
-        </li>
-        <li className='active'>
-          <CustomLink to='/Login' >Login</CustomLink>
-        </li>
-        
-      </ul>
+      <Link to='/Login' className='Home'>
+        Login
+      </Link>
+      
     </nav>
   )
 }

@@ -5,6 +5,7 @@ import './Match.css'
 import user_icon from '../../Assets/person.png'
 import Roster from '../../components/Roster';
 import { useLocation} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const {DateTime} = require('luxon')
 
 
@@ -52,26 +53,30 @@ function Match() {
 
   const team1 = []
   for(let i = 0; i < roster1.length; i++){
-    team1.push(<Roster profilePicture = {roster1[i].profilePicture ? roster1[i].profilePicture : user_icon}firstName = {roster1[i].firstName} lastName = {roster1[i].lastName}/>)
+    team1.push(<Roster profilePicture = {roster1[i].profilePicture ? roster1[i].profilePicture : user_icon}firstName = {roster1[i].firstName} lastName = {roster1[i].lastName} id = {roster1[i]._id}/>)
   }
 
   const team2 = []
   for(let i = 0; i < roster2.length; i++){
-    team2.push(<Roster profilePicture = {roster2[i].profilePicture ? roster2[i].profilePicture : user_icon} firstName = {roster2[i].firstName} lastName = {roster2[i].lastName}/>)
+    team2.push(<Roster profilePicture = {roster2[i].profilePicture ? roster2[i].profilePicture : user_icon} firstName = {roster2[i].firstName} lastName = {roster2[i].lastName} id = {roster2[i]._id}/>)
   }
+
+  const team1Link = '/team/' + team[0]._id
+  const team2Link = '/team/' + team[1]._id
+
 
   return (
     <div className='container1'>
       <div className='team-display'>
         <div>
           <img src={(team[0].picture) ? team[0].picture : user_icon} alt=''/>
-          <div className='team'>{team[0].name}</div>
+          <div className='team'><Link to={team1Link}>{team[0].name}</Link></div>
         </div>
         <div>
           <p className='vs'>VS</p>
         </div>
         <div>
-          <div className='team'>{team[1].name}</div>
+          <div className='team'><Link to={team2Link}>{team[1].name}</Link></div>
           <img src={(team[1].picture) ? team[1].picture : user_icon} alt=''/>
         </div>
       </div>

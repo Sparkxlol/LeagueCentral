@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Match from './components/Match';
-import TeamLeagueDisplay from '../../LeaguePage/TeamLeagueDisplay';
 
 function League() {
     const { id } = useParams();
@@ -14,7 +13,7 @@ function League() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const matchRes = await axios.get(`/api/leagues/matches/${id}`);
+            const matchRes = await axios.get(`/api/leagues/matches/complete/${id}`);
             setMatches(matchRes.data);
 
             setLoading(false);

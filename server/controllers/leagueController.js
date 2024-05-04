@@ -69,4 +69,12 @@ const getMatchesFromLeague = async (req, res) => {
     res.status(200).json(matches);
 }
 
-module.exports = { getActiveLeagues, getLeague, createLeague, getMatchesFromLeague };
+// RETRIEVE the matches from the given league with teams and players
+const getMatchesFromLeagueComplete = async (req, res) => {
+    const { id } = req.params;
+    const matches = await Match.find({ league: id }).populate({path: 'teams', populate: { path: 'players' }});
+    
+    res.status(200).json(matches);
+}
+
+module.exports = { getActiveLeagues, getLeague, createLeague, getMatchesFromLeague, getMatchesFromLeagueComplete };
