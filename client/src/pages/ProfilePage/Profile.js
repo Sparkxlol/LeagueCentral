@@ -13,20 +13,25 @@ function Profile() {
     const [teams, setTeams] = useState('');
     const [org, setOrg] = useState('')
 
-    const [loading, setLoading] = useState('')
+    const [loading, setLoading] = useState(true)
 
+    console.log('hallo')
     useEffect (() => {
         const fetchData = async () => {
             const userRes = await axios.get(`/api/users/${id}`);
             setUser(userRes.data);
-
+            console.log(userRes.data)
+            console.log('user')
             const teamsRes = await axios.get(`/api/users/teams/${id}`);
             setTeams(teamsRes.data);
-
-            const orgRes = await axios.get(`/api/organizations/${user.organization}`)
+            console.log('team')
+            console.log(teamsRes.data)
+            const orgRes = await axios.get(`/api/organizations/${userRes.data.organization}`)
             setOrg(orgRes.data)
+            console.log(orgRes.data)
+            console.log('org')
 
-            setLoading(false);
+        setLoading(false);
         }
 
         fetchData();
@@ -35,7 +40,7 @@ function Profile() {
     if (loading) {
         return <div>Loading...</div>
     }
-
+    console.log('win')
     console.log(user)
     const activeTeams = []
     

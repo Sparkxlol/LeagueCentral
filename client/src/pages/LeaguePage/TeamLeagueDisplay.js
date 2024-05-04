@@ -26,7 +26,7 @@ function TeamLeagueDisplay(props) {
     
   const link = '/team/' + competingTeams._id
   return (
-        <Link to={link} >{competingTeams.name}</Link>
+        <Link to={link} >{competingTeams.name}<br /></Link>
   )
 }
 

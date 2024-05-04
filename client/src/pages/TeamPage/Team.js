@@ -24,8 +24,11 @@ function Team() {
           setTeam(res.data);
         const res1 = await axios.get(`/api/teams/latest/${id}`)
           setLastMatch(res1.data);
+          
         const res2 = await axios.get(`/api/teams/league/${id}`)
           setLeague(res2.data);
+          console.log(res2.data)
+          
         setLoading(false)
       }
       fetchData()
