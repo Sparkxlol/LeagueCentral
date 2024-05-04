@@ -2,18 +2,20 @@ import {Link , useNavigate} from 'react-router-dom'
 import './Login.css'
 import mail_icon from '../../Assets/email.png'
 import password_icon from '../../Assets/password.png'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import useSignIn from 'react-auth-kit/hooks/useSignIn'
+import AuthContext from '../../components/AuthProvider'
 
 function Login() {
   
+  const { setAuth } = useContext(AuthContext)
   const[details, setDetails] = useState({
     email: '',
     password: ''
   })
   const nav = useNavigate()
-  // const signIn = useSignIn()
+  
   
 
   function handleChange (event) {

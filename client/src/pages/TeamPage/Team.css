@@ -14,6 +14,20 @@
     height: 80px;
 }
 
+.team1 .joinTeam {
+    margin-left: auto;
+    align-items: flex-end;
+    background-color: rgba(34, 209, 34, 0.849);
+    border-radius: 8px;
+    padding: 7px;
+    color: white;
+}
+
+.joinTeam a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .solid {
     border: 2px solid #bbb;
     width: auto;

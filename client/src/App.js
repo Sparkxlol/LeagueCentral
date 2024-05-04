@@ -19,6 +19,7 @@ import TournamentSchedule from './pages/TournamentSchedule';
 import Navbar from './components/Navbar';
 import OrganizerRoutes from './routes/OrganizerRoutes';
 import LeagueList from './pages/LeagueList/LeagueList';
+import JoinTeam from './pages/JoinTeam/JoinTeam';
 
 
 
@@ -44,6 +45,7 @@ function App() {
           <Route path="/organizer/*" element={<OrganizerRoutes />} />
           <Route path='/LeagueList' element={<LeagueList />} />
           <Route path='/' element={<Login />} />
+          <Route path='/JoinTeam/:id' element={<JoinTeam />}  />
           <Route path='/league/:id' element={<League />} />
           <Route path='/login' element={<Login />} />
           <Route path='/match/:matchID' element={<Match />} />

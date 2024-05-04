@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import './Team.css'
 import PlayerDisplay from './PlayerDisplay'
 import { useEffect, useState } from 'react'
@@ -57,11 +57,14 @@ function Team() {
     didWin = false;
   }
 
+  const joinLink = '/JoinTeam/' + team._id
+
   return (
     <>
       <div className='team1'>
         <img src= {(team.picture) ? team.picture : user_icon} alt = ''/>
         {team.name}
+        <div className='joinTeam'><Link to={joinLink}>Join Team</Link></div>
       </div>
       <hr className='solid'/>
       <div className='top'>
