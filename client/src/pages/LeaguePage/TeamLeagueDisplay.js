@@ -9,8 +9,6 @@ function TeamLeagueDisplay(props) {
   
   const [loading, setLoading] = useState(true);
   const [competingTeams, setcompetingTeams] = useState('')
-  console.log(props)
-  console.log('teams')
     useEffect(() => {
       const fetchData = async () => {
         const res = await axios.get(`/api/teams/${props.team._id}`)
