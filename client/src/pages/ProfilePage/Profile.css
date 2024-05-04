@@ -32,7 +32,8 @@
 }
 
  .profileBackground .teams {
-    
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: auto;
     margin-top: 10px;
