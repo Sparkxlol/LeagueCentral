@@ -53,6 +53,23 @@ const createMatch = async (req, res) => {
     catch (error) { return utilities.returnError(res, 400, error.message) };
 }
 
+// UPDATE the given match and return their previous information.
+const updateMatch = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.isValidObjectId(id)) {
+        return utilities.returnError(res, 404, 'No such match exists');
+    }
+
+    const match = await Match.findOneAndUpdate({ _id: id}, { ...req.body}, { runValidators: true });
+
+    if (!match) {
+        return utilities.returnError(res, 404, 'No such match exists');
+    }
+
+    res.status(200).json(match);
+}
+
 // RETRIEVE the teams from the match with the given ids. Assume match exists.
 const getTeamsFromMatch = async (req, res) => {
     const responseBody = [];
@@ -80,4 +97,4 @@ const getOrganizationFromMatch = async (req, res) => {
     res.status(200).json(organization);
 }
 
-module.exports = { getMatch, getMatchComplete, createMatch, getTeamsFromMatch, getOrganizationFromMatch };
+module.exports = { getMatch, getMatchComplete, createMatch, updateMatch, getTeamsFromMatch, getOrganizationFromMatch };

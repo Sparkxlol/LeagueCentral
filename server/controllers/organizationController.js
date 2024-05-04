@@ -28,11 +28,11 @@ const getOrganization = async (req, res) => {
 
 // CREATE the organization with the given request body parameters.
 const createOrganization = async (req, res) => {
-    const { name, email, userName, password, phone, profilePicture } = req.body;
+    const { name, email, userName, password, phone, address, profilePicture } = req.body;
 
     try {
         const organization = await Organization.create({ 
-            name, email, userName, password, phone, profilePicture
+            name, email, userName, password, phone, address, profilePicture
         });
 
         res.status(200).json(organization);
