@@ -58,11 +58,9 @@ function Profile() {
                 <img src= {(user.profilePicture) ? user.profilePicture : user_icon} alt = ''/> 
                 {profileTitle}
             </div>
+            <div className='editInputs'><p className='userInfo'>Username: {user.userName}</p></div>
             <div className='editInputs'><p className='userInfo'>Email: {user.email}</p></div>
             <div className='editInputs'><p className='userInfo'>Phone: {user.phone}</p></div>
-            <div className='editInputs'><p className='userInfo'>Username: {user.userName}</p></div>
-            <div className='editInputs'><p className='userInfo'>Password: {}</p></div>
-            <div className='editInputs'><p className='userInfo'>Email: {user.email}</p></div>
             <div className='editInputs'><p className='userInfo'>Organization: <Link to={orgLink}>{org.name}</Link></p></div>
             <div className='activeTeams'>
                 Active Teams
