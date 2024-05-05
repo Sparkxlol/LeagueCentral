@@ -74,7 +74,6 @@ function Team() {
           <div className='container2'>
             <div className='desc'>{team.description}</div>
           </div>
-          
         </div>
         <div className='column'>
         <p className='team-sport-header'>Sport:</p>
