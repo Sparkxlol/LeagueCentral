@@ -37,6 +37,11 @@ function League() {
             currentMatches.push(<Match match={matches[i]} teams={matches[i].teams}/>);
     }
 
+    const changeIndex = (newIndex) => {
+        if (newIndex >= 0 && newIndex < matches.length)
+            setIndex(newIndex);
+    }
+
     const startDate = DateTime.fromISO(league.startDate);
     const endDate = DateTime.fromISO(league.endDate);
 
@@ -54,13 +59,15 @@ function League() {
                 {startDate.toLocaleString(DateTime.DATETIME_SHORT)} - {endDate.toLocaleString(DateTime.DATETIME_SHORT)}
             </div>
             <div className='row subheader'>
-                <div><Link to={createLink}>Create</Link></div>
+                <div><Link to={createLink}>Create Match</Link></div>
             </div>
             <div className='sections'>
                 {currentMatches}
             </div>
             <div className='row subheader'>
+                <button onClick={() => changeIndex(index - 10)}>Prev</button>
                 <div><Link to={returnLink}>Return</Link></div>
+                <button onClick={() => changeIndex(index + 10)}>Next</button>
             </div>
         </div>
     )

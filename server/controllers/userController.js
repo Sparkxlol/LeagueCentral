@@ -88,8 +88,11 @@ const loginUser = async (req, res) => {
     // Verifies the user exists and the entered email/pass combination is valid.
     if (user) {
         if (await bcrypt.compare(req.body.password, user.password)) {
-            const token = auth.createToken(user._id);
-            return res.status(200).json({ token });
+            const { accessToken, refreshToken } = auth.createToken(user._id);
+
+            res.cookie('jwt', refreshToken, { httpOnly: true, maxAge: 15 * 60 * 60 * 1000 });
+
+            return res.status(200).json({ accessToken });
         }
     }
 

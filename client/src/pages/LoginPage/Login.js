@@ -5,11 +5,12 @@ import password_icon from '../../Assets/password.png'
 import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import useSignIn from 'react-auth-kit/hooks/useSignIn'
-import AuthContext from '../../components/AuthProvider'
+import AuthContext from '../../context/AuthProvider'
 
 function Login() {
   
-  const { setAuth } = useContext(AuthContext)
+  const { setAuth } = useContext(AuthContext);
+
   const[details, setDetails] = useState({
     email: '',
     password: ''
@@ -37,24 +38,12 @@ function Login() {
 
     const userInfo = details
     let user = null
-    
-
-    console.log(userInfo)
 
     await axios.post('/api/users/login', userInfo).then(res => {
-      console.log('hi')
-      console.log(res.data)
       user = (res.data)
-      
     })
-
-    
-
-    console.log('user')
-    console.log(user)
     
     nav('/' + user.organization)
-
   }
   
   

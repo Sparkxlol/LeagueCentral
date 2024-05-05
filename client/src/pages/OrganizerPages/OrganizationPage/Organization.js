@@ -36,7 +36,13 @@ function Organization() {
             currentLeagues.push(<League league={leagues[i]} sport={leagues[i].sport}/>);
     }
 
+    const changeIndex = (newIndex) => {
+        if (newIndex >= 0 && newIndex < leagues.length)
+            setIndex(newIndex);
+    }
+
     const createLink = "../league/create/" + id;
+    const returnLink = "../../" + id;
 
     return (
         <div className='homepage'>
@@ -46,10 +52,15 @@ function Organization() {
                 </div>
             </div>
             <div className='row subheader'>
-                <div><Link to={createLink}>Create</Link></div>
+                <div><Link to={createLink}>Create League</Link></div>
             </div>
             <div className='sections'>
                 {currentLeagues}
+            </div>
+            <div className='row subheader'>
+                <button onClick={() => changeIndex(index - 10)}>Prev</button>
+                <div><Link to={returnLink}>Return</Link></div>
+                <button onClick={() => changeIndex(index + 10)}>Next</button>
             </div>
         </div>
     )

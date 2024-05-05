@@ -1,6 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
-import {  useParams } from 'react-router-dom'
+import {  useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import ActiveSport from './components/ActiveSport'
@@ -30,6 +30,8 @@ const Home = (props) => {
     if (loading) {
       return <div>Loading...</div>
     }
+
+    const orgLink = '/organizer/' + id;
     
     return (
         <Fragment>
@@ -41,6 +43,7 @@ const Home = (props) => {
               </div>
             </div>
             <div className="subheader">{org.address}</div>
+            <div className="subheader"><Link to={orgLink}>Organizers</Link></div>
           </div>
           <div className="homepage">
             <div className="header">

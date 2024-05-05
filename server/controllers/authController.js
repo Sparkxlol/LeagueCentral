@@ -14,7 +14,7 @@ const createToken = (userID) => {
         expiresIn: tokenDuration * 60
     });
 
-    return accessToken;
+    return { accessToken, refreshToken};
 }
 
 module.exports = { createToken };
