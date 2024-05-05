@@ -19,36 +19,11 @@ function Registration() {
     dateOfBirth: '',
     gender: 'male',
     phone: '',
-    organization: '',
-    profilePicture: ''
+    organization: '6635ccf8bd6f34dfa87e7d12',
   })
 
 
   const nav = useNavigate()
-
-    const handleFileUpload = (event) => {
-      const file = event.target.files[0];
-      
-      // Check if a file is selected
-      if (!file) return;
-  
-      Resizer.imageFileResizer(
-        file, // The image file
-        100,  // New width (in pixels)
-        100,  // New height (in pixels)
-        'JPEG', // Output format
-        100,   // Image quality (0-100)
-        0,     // Rotation
-        (uri) => {
-          // Callback function
-          console.log(uri);
-          setDetails((prev) => {
-            return {...prev, [event.target.name]: uri}
-          })
-        },
-        'base64' // Output type
-      );
-    }
 
   function handleChange (event) {
     
@@ -122,9 +97,6 @@ function Registration() {
         </div>
         <div className='input'>
           <input placeholder='Phone' type='text' id='phone' name='phone' onChange={handleChange} />
-        </div>
-        <div className='input'>
-          <input type='file'  name='profilePicture' id='profilePicture' onChange={handleFileUpload}/>
         </div>
       </div>
       <div className ='forgot-password'>Already have an account?<Link to = '/Login'>Login here.</Link></div>
